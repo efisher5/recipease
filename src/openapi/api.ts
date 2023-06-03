@@ -146,7 +146,7 @@ export interface UserDto {
      */
     'email'?: string;
     /**
-     * The password (hash) of the user
+     * The hashed password of the user
      * @type {string}
      * @memberof UserDto
      */

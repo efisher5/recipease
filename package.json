@@ -35,7 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:api": "rimraf ./src/openapi && npx @openapitools/openapi-generator-cli generate -i ../api/openapi.yaml -o ./src/openapi -g typescript-axios",
+    "build:api": "rimraf ./src/openapi && npx @openapitools/openapi-generator-cli generate -i ../menu-server/api/openapi.yaml -o ./src/openapi -g typescript-axios",
     "publishToHeroku": "cd ../ && git subtree push --prefix front heroku-front main || true",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
