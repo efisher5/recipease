@@ -1,0 +1,110 @@
+.recipe-name-description {
+    text-align: center;
+}
+
+.input-field {
+    margin: 1rem 0;
+}
+
+label {
+    font-size: large;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px; 
+    border: 1px solid lightgrey;
+}
+
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input-field-wide {
+    width: 50%;
+}
+
+.input-list {
+    text-align: center;
+}
+
+.input-field-list {
+    width: 45%;
+    margin: .25rem;
+}
+
+.input-field-narrow {
+    width: 25%
+}
+
+.prep-cook-time {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.block-label {
+    display: block;
+}
+
+.submit-btn {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.submit {
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid #cb6015;
+    background-color: #cb6015;
+    color: white;
+    border-radius: 10px;;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.submit:hover {
+    opacity: .7;
+}
+
+.order {
+    font-weight: bold;
+}
+
+.add-btn {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.add {
+    border: 1px solid #cb6015 !important;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.add-span {
+    margin-right: .25rem;
+}
+
+.form-divider {
+    border: 1px solid gray;
+    width: 30%;
+    position: relative;
+    left: 35%;
+    opacity: 1;
+    margin: 1rem 0;
+}
+
+.list-label {
+    text-align: center;
+}
+
+.instruction-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

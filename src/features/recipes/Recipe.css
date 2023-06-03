@@ -1,0 +1,59 @@
+.recipe-border {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+.times {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+.ingredient {
+    margin: .5rem 0;
+}
+
+.list {
+    width: 70%;
+    position: relative;
+    left: 15%;
+    margin-bottom: 2rem;
+}
+
+h4 {
+    text-align: center;
+}
+
+.recipe-btn-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.recipe-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.recipe-btn-text {
+    position: relative;
+    right: .3rem;
+    bottom: .2rem;
+}
+
+h1 {
+    text-align: center;
+}

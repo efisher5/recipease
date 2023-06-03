@@ -1,0 +1,95 @@
+.darkBG {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: white;
+    z-index: 100;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+  
+  .modalHeader {
+    height: 50px;
+    background: white;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding-top: 1rem;
+  }
+  
+  .heading {
+    margin: 0;
+    padding: 10px;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .modalContent {
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+  }
+  
+  .modalActions {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+  }
+  
+  .actionsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .deleteBtn {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 11px 28px;
+    border-radius: 8px;
+    color: #fff;
+    background: #ee3040;
+    border: 1px solid #ee3040
+  }
+  
+  .deleteBtn:hover {
+    opacity: 0.7
+  }
+  
+  .cancelBtn {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 11px 28px;
+    border-radius: 8px;
+    border: 1px solid #cb6015;
+    color: #cb6015;
+    background: #fafafa;
+  }
+  
+  .cancelBtn:hover {
+    opacity: 0.7;
+  }

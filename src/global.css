@@ -1,0 +1,13 @@
+.base-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.base-btn:hover {
+    opacity: 0.7;
+}
+
+.recipe-btn:hover {
+    opacity: 0.7;
+}

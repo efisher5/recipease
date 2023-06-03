@@ -1,0 +1,43 @@
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-title {
+    margin-top: 0;
+}
+
+.login-btn-wrapper {
+    margin-top: 1rem;
+}
+
+.login-btn {
+    cursor: pointer;
+    background-color: #cb6015;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    opacity: 0.7;
+}
+
+.input-field-normal {
+    width: 75%;
+}
+
+.icon-wrapper {
+    margin-bottom: 1rem;
+}
