@@ -9,3 +9,7 @@ services:
       - '3001:3001'
     volumes:
       - ./:/menu-web
+    networks:
+      - menu-net
+networks:
+  menu-net:
