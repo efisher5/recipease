@@ -1,21 +1,19 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import "./Layout.css";
 import { useAuth0 } from "@auth0/auth0-react"
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 export default function Layout() {
     const navigate = useNavigate();
-    const { logout, getAccessTokenSilently, user } = useAuth0();
+    const { logout, isAuthenticated, user } = useAuth0();
 
-    useMemo(() => {
+    useEffect(() => {
         const checkAuth = async () => {
-            try {
-                const accessToken = await getAccessTokenSilently();
-            } catch (e) {
+            if (!isAuthenticated) {
                 navigate('/login')
             }
         }
-        checkAuth();
+        //checkAuth();
     }, [])
 
     const returnHome = () => {
