@@ -71,8 +71,8 @@
     padding: 11px 28px;
     border-radius: 8px;
     color: #fff;
-    background: #ee3040;
-    border: 1px solid #ee3040
+    background: #ce1141;
+    border: 1px solid #ce1141
   }
   
   .deleteBtn:hover {
@@ -85,8 +85,8 @@
     font-weight: bold;
     padding: 11px 28px;
     border-radius: 8px;
-    border: 1px solid #cb6015;
-    color: #cb6015;
+    border: 1px solid #0041cc;
+    color: #0041cc;
     background: #fafafa;
   }
   

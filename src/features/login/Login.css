@@ -10,6 +10,29 @@
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
+    position: relative;
+}
+
+.login-wrapper::before,
+.login-wrapper::after {
+    position: absolute;
+    width: 33px;
+    height: 20px;
+    content: "";
+}
+
+.login-wrapper::before {
+    left: 0;
+    top: 0;
+    border-left: 3px solid #ce1141;
+    border-top: 3px solid #ce1141;
+}
+
+.login-wrapper::after {
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #0041cc;
+    border-bottom: 3px solid #0041cc;
 }
 
 .login-title {
@@ -22,7 +45,7 @@
 
 .login-btn {
     cursor: pointer;
-    background-color: #cb6015;
+    background-color: #0041cc;
     border: none;
     color: white;
     padding: 10px 20px;
