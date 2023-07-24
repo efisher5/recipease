@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  front:
+    image: front
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./:/menu-web
+    networks:
+      - menu-net
+networks:
+  menu-net:
