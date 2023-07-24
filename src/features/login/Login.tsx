@@ -31,9 +31,9 @@ export default function LoginForm() {
         <div className='login-form'>
             <div className='login-wrapper'>
                 <div className='icon-wrapper'>
-                    <FontAwesomeIcon icon={faMortarPestle} size='2x' />
+                    <FontAwesomeIcon icon={faMortarPestle} size='2x' className='secondary-color' />
                 </div>
-                <h2 className='login-title'>Welcome to Recipease</h2>
+                <h2 className='login-title'>Welcome to Recipease!</h2>
                 <Formik initialValues={initialValues} onSubmit={() => loginWithRedirect()}>
                     {() => (
                         <Form>
