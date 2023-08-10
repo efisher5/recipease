@@ -1,19 +1,14 @@
-.recipe-name-description {
-    text-align: center;
+.recipe-form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.input-field {
-    margin: 1rem 0;
-}
-
-label {
+.recipe-form-label {
+    display: block;
+    font-weight: bold;
     font-size: large;
-}
-
-input {
-    padding: 10px;
-    border-radius: 5px; 
-    border: 1px solid lightgrey;
+    margin-bottom: .5rem;
 }
 
 textarea {
@@ -24,21 +19,14 @@ textarea {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-.input-field-wide {
-    width: 50%;
+.input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
 }
 
-.input-list {
-    text-align: center;
-}
-
-.input-field-list {
-    width: 45%;
-    margin: .25rem;
-}
-
-.input-field-narrow {
-    width: 25%
+.input-wide {
+    width: 100%;
 }
 
 .prep-cook-time {
@@ -47,60 +35,37 @@ textarea {
     text-align: center;
 }
 
-.block-label {
-    display: block;
+.submit-btn-row {
+    text-align: center;
 }
 
 .submit-btn {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.submit {
     background-color: transparent;
     cursor: pointer;
-    border: 1px solid #0041cc;
-    background-color: #0041cc;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
     color: white;
-    border-radius: 10px;;
-    padding: 10px 20px;
+    border-radius: 8px;
+    padding: 10px 30px;
     font-weight: bold;
 }
 
-.submit:hover {
+.submit-btn:hover {
     opacity: .7;
 }
 
-.order {
-    font-weight: bold;
+.add-btn-row {
+    margin: 1rem 0;
+    text-align: right;
 }
 
 .add-btn {
-    margin: 1rem 0;
-    text-align: center;
+    padding: 10px;
+    font-weight: bold;
 }
 
-.add {
-    border: 1px solid #0041cc !important;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.add-span {
+.add-btn-span {
     margin-right: .25rem;
-}
-
-.form-divider {
-    border: 1px solid gray;
-    width: 30%;
-    position: relative;
-    left: 35%;
-    opacity: 1;
-    margin: 1rem 0;
-}
-
-.list-label {
-    text-align: center;
 }
 
 .instruction-element {
@@ -110,5 +75,5 @@ textarea {
 }
 
 .secondary-color {
-    color: #ce1141;
+    color: var(--secondary);
 }

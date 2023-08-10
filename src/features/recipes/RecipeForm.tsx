@@ -111,67 +111,63 @@ export default function RecipeForm() {
                 >
                     {({ values }) => (
                         <Form className='recipe-form'>
-                            <div className='recipe-name-description'>
-                                <div className='input-field'>
-                                    <label className='block-label' htmlFor='name'>Recipe Name</label>
-                                    <Field className='input-field-wide' id='name' name='name' />
+                            <div>
+                                <div className='my-1'>
+                                    <label className='recipe-form-label' htmlFor='name'>Recipe Name</label>
+                                    <Field className='input input-wide' id='name' name='name' />
                                 </div>
 
-                                <div className='input-field'>
-                                    <label className='block-label' htmlFor='description'>Description</label>
+                                {/* <div className='my-1'>
+                                    <label className='recipe-form-label' htmlFor='description'>Description</label>
                                     <Field className='input-field-wide' id='description' name='description' />
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className='prep-cook-time'>
-                                <div className='input-field'>
-                                    <label className='block-label' htmlFor='prepTime'>Prep Time</label>
-                                    <Field className='input-field-narrow' id='prepTime' name='prepTime' type='number' />
-                                    { ' minutes'}
+                                <div className='my-1'>
+                                    <label className='recipe-form-label' htmlFor='prepTime'>Prep Time</label>
+                                    <Field className='input input-wide' id='prepTime' name='prepTime' type='number' />
                                 </div>
 
-                                <div className='input-field'>
-                                    <label className='block-label' htmlFor='cookTime'>Cook Time</label>
-                                    <Field className='input-field-narrow' id='cookTime' name='cookTime' type='number' />
-                                    { ' minutes'}
+                                <div className='my-1'>
+                                    <label className='recipe-form-label' htmlFor='cookTime'>Cook Time</label>
+                                    <Field className='input input-wide' id='cookTime' name='cookTime' type='number' />
                                 </div>
                             </div>
 
-                            <label className='block-label list-label' htmlFor='ingredients'>Ingredients</label>
+                            <label className='recipe-form-label' htmlFor='ingredients'>Ingredients</label>
                             <FieldArray name='ingredients'>
                                 {({ insert, remove, push}) => (
-                                    <div className='input-list'>
+                                    <div>
                                         {values.ingredients.length > 0 &&
                                         values.ingredients.map((ingredient, index) => (
                                             <div key={index}>
-                                                <span className='order'>{ index + 1 + '.' }</span>
-                                                <Field className='input-field-list' name={`ingredients.${index}`} />
+                                                <span><b>{ index + 1 + '.' }</b></span>
+                                                <Field className='input' name={`ingredients.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className='secondary-color' />
                                                 </button>
                                             </div>
                                         ))}
 
-                                        <div className='add-btn'>
-                                            <button disabled={isOpen} className='base-btn add' type='button' onClick={() => push({})}>
-                                                <span className='add-span'>Add Ingredient</span>
-                                                <FontAwesomeIcon icon={faPlus} />
+                                        <div className='add-btn-row'>
+                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push({})}>
+                                                <span className='add-btn-span'>Add Ingredient</span>
+                                                <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
                                         </div>
-
-                                        <div className='form-divider'></div>
                                     </div>
                                 )}
                             </FieldArray>
 
-                            <label className='block-label list-label' htmlFor='instructions'>Instructions</label>
+                            <label className='recipe-form-label' htmlFor='instructions'>Instructions</label>
                             <FieldArray name='instructions'>
                                 {({ insert, remove, push}) => (
                                     <div className='input-list'>
                                         {values.instructions.length > 0 &&
                                         values.instructions.map((ingredient, index) => (
                                             <div className='instruction-element' key={index}>
-                                                <span className='order'>{ index + 1 + '.' }</span>
+                                                <span><b>{ index + 1 + '.' }</b></span>
                                                 <Field component='textarea' rows='3' className='input-field-list' name={`instructions.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className="secondary-color"/>
@@ -179,20 +175,18 @@ export default function RecipeForm() {
                                             </div>
                                         ))}
 
-                                        <div className='add-btn'>
-                                            <button disabled={isOpen} className='base-btn add' type='button' onClick={() => push({})}>
-                                                <span className='add-span'>Add Instruction</span>
-                                                <FontAwesomeIcon icon={faPlus} />
+                                        <div className='add-btn-row'>
+                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push({})}>
+                                                <span className='add-btn-span'>Add Instruction</span>
+                                                <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
                                         </div>
-
-                                        <div className='form-divider'></div>
                                     </div>
                                 )}
                             </FieldArray>
 
-                            <div className='submit-btn'>
-                                <button disabled={isOpen} className='submit' type='submit'>Save</button>
+                            <div className='submit-btn-row'>
+                                <button disabled={isOpen} className='submit-btn' type='submit'>Save</button>
                             </div>
                         </Form>
                     )}
