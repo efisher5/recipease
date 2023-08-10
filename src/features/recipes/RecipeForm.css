@@ -11,22 +11,18 @@
     margin-bottom: .5rem;
 }
 
-textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid lightgrey;
-    resize: none;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-}
-
 .input {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid lightgrey;
 }
 
-.input-wide {
+.input-max-width {
     width: 100%;
+}
+
+.input-flex {
+    flex-grow: 1;
 }
 
 .prep-cook-time {
@@ -37,6 +33,7 @@ textarea {
 
 .submit-btn-row {
     text-align: center;
+    margin-top: 2rem;
 }
 
 .submit-btn {
@@ -71,7 +68,13 @@ textarea {
 .instruction-element {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+    margin-bottom: .5rem;
+}
+
+.textarea {
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .secondary-color {

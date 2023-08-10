@@ -112,9 +112,9 @@ export default function RecipeForm() {
                     {({ values }) => (
                         <Form className='recipe-form'>
                             <div>
-                                <div className='my-1'>
+                                <div className='mb-1'>
                                     <label className='recipe-form-label' htmlFor='name'>Recipe Name</label>
-                                    <Field className='input input-wide' id='name' name='name' />
+                                    <Field className='input input-max-width' id='name' name='name' />
                                 </div>
 
                                 {/* <div className='my-1'>
@@ -124,14 +124,14 @@ export default function RecipeForm() {
                             </div>
 
                             <div className='prep-cook-time'>
-                                <div className='my-1'>
+                                <div className='mb-1'>
                                     <label className='recipe-form-label' htmlFor='prepTime'>Prep Time</label>
-                                    <Field className='input input-wide' id='prepTime' name='prepTime' type='number' />
+                                    <Field className='input input-max-width' id='prepTime' name='prepTime' type='number' />
                                 </div>
 
-                                <div className='my-1'>
+                                <div className='mb-1'>
                                     <label className='recipe-form-label' htmlFor='cookTime'>Cook Time</label>
-                                    <Field className='input input-wide' id='cookTime' name='cookTime' type='number' />
+                                    <Field className='input input-max-width' id='cookTime' name='cookTime' type='number' />
                                 </div>
                             </div>
 
@@ -141,9 +141,9 @@ export default function RecipeForm() {
                                     <div>
                                         {values.ingredients.length > 0 &&
                                         values.ingredients.map((ingredient, index) => (
-                                            <div key={index}>
+                                            <div className='instruction-element' key={index}>
                                                 <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field className='input' name={`ingredients.${index}`} />
+                                                <Field className='input input-flex' name={`ingredients.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className='secondary-color' />
                                                 </button>
@@ -168,7 +168,7 @@ export default function RecipeForm() {
                                         values.instructions.map((ingredient, index) => (
                                             <div className='instruction-element' key={index}>
                                                 <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field component='textarea' rows='3' className='input-field-list' name={`instructions.${index}`} />
+                                                <Field component='textarea' rows='3' className='input input-flex textarea' name={`instructions.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className="secondary-color"/>
                                                 </button>
