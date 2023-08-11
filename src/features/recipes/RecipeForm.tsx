@@ -1,11 +1,11 @@
 import '../../global.css';
 import './RecipeForm.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPlus, faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useAppDispatch } from '../../app/hooks';
-import { getRecipe, updateRecipe, deleteRecipe } from "./recipeSlice";
+import { getRecipe, updateRecipe } from "./recipeSlice";
 import { RecipeDto } from "../../openapi";
 import { Formik, Form, Field, FieldArray } from 'formik';
 import DeleteRecipeModal from './DeleteRecipeModal';
@@ -84,10 +84,6 @@ export default function RecipeForm() {
                     <span className="recipe-btn-text">View</span>
                     <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
                 </button>
-                <button onClick={() => setIsOpen(true)} type="button" className="recipe-btn">
-                    <span className="recipe-btn-text">Delete</span>
-                    <FontAwesomeIcon icon={faTrash} size="2x" />
-                </button>
             </div>
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}
             <div className="recipe-border">
@@ -151,7 +147,7 @@ export default function RecipeForm() {
                                         ))}
 
                                         <div className='add-btn-row'>
-                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push({})}>
+                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push('')}>
                                                 <span className='add-btn-span'>Add Ingredient</span>
                                                 <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
@@ -176,7 +172,7 @@ export default function RecipeForm() {
                                         ))}
 
                                         <div className='add-btn-row'>
-                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push({})}>
+                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push('')}>
                                                 <span className='add-btn-span'>Add Instruction</span>
                                                 <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
@@ -186,7 +182,8 @@ export default function RecipeForm() {
                             </FieldArray>
 
                             <div className='submit-btn-row'>
-                                <button disabled={isOpen} className='submit-btn' type='submit'>Save</button>
+                                <button disabled={isOpen} className='form-btn delete-btn' type='button' onClick={() => setIsOpen(true)}>Delete</button>
+                                <button disabled={isOpen} className='form-btn submit-btn' type='submit'>Save</button>
                             </div>
                         </Form>
                     )}
