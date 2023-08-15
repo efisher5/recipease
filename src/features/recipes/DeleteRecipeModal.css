@@ -1,10 +1,8 @@
 .centered {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 2px solid var(--primary);
-  border-radius: 5px;
 }
 
 .modal {
@@ -13,9 +11,24 @@
   height: 220px;
   background: #f1f1f1;
   z-index: 100;
-  border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
   text-align: center;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  animation: scaleUp .5s cubic-bezier(0.165, 0.240, 0.140, 1.00) forwards;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1) translateY(1000px);
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
 }
 
 .modal-header {
