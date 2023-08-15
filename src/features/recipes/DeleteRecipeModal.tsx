@@ -1,6 +1,4 @@
-import { useDispatch } from 'react-redux';
 import './DeleteRecipeModal.css';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteRecipe } from './recipeSlice';
 import { RecipeDto } from '../../openapi';
@@ -28,20 +26,16 @@ export default function DeleteRecipeModal({setIsOpen, recipe}: ModalProps) {
 
     return (
         <div>
-            <div className='darkBG' onClick={() => setIsOpen(false)}>
+            <div className='' onClick={() => setIsOpen(false)}>
                 <div className='centered'>
                     <div className='modal'>
-                        <div className='modalHeader'>
-                            <h5 className='heading'>Delete Recipe</h5>
-                        </div>
-                        <div className='modalContent'>
+                        <h3 className='modal-header m-0'>Delete Recipe</h3>
+                        <div className='p-1'>
                             Are you sure you want to delete this recipe?
                         </div>
-                        <div className='modalActions'>
-                            <div className='actionsContainer'>
-                                <button className='cancelBtn' onClick={() => setIsOpen(false)}>Cancel</button>
-                                <button className='deleteBtn' onClick={() => removeRecipe()}>Delete</button>
-                            </div>
+                        <div className='modal-actions'>
+                            <button className='modal-btn modal-cancel-btn' onClick={() => setIsOpen(false)}>Cancel</button>
+                            <button className='modal-btn modal-delete-btn' onClick={() => removeRecipe()}>Delete</button>
                         </div>
                     </div>
                 </div>

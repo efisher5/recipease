@@ -17,6 +17,16 @@
     opacity: 0.7;
 }
 
+
+/* Generic margin/padding classes */
+.m-0 {
+    margin: 0;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
 .mb-1 {
     margin: 0 0 1rem;
 }
