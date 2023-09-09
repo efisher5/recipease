@@ -63,12 +63,14 @@ export default function Recipe() {
                 {/* Recipe Prep/Cook Time */}
                 <div className="times">
                     <div className="prep">
-                        <h4>Prep Time</h4>
-                        <p>{ recipe.prepTime + " minutes" }</p>
+                        <h4 className="time-label">Prep Time</h4>
+                        {recipe.prepTimeHours !== 0 && <span>{ recipe.prepTimeHours + (recipe.prepTimeHours === 1 ? " hour " : " hours ") }</span>}
+                        <span>{ recipe.prepTimeMinutes + (recipe.prepTimeMinutes === 1 ? " minute" : " minutes") }</span>
                     </div>
                     <div className="cook">
-                        <h4>Cook Time</h4>
-                        <p>{ recipe.cookTime + " minutes"}</p>
+                        <h4 className="time-label">Cook Time</h4>
+                        {recipe.cookTimeHours !== 0 && <span>{ recipe.cookTimeHours + (recipe.cookTimeHours === 1 ? " hour " : " hours ") }</span>}
+                        <span>{ recipe.cookTimeMinutes + (recipe.cookTimeMinutes === 1 ? " minute" : " minutes") }</span>
                     </div>
                 </div>
 

@@ -21,6 +21,11 @@
     width: 100%;
 }
 
+.input-min-width {
+    width: 15%;
+    margin-right: 5px;
+}
+
 .input-flex {
     flex-grow: 1;
 }

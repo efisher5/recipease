@@ -54,17 +54,29 @@ export interface RecipeDto {
      */
     'recipeDescription'?: string;
     /**
-     * The prep time for the recipe
+     * The prep time hours for the recipe
      * @type {number}
      * @memberof RecipeDto
      */
-    'prepTime'?: number;
+    'prepTimeHours'?: number;
     /**
-     * The cook time for the recipe
+     * The prep time minutes for the recipe
      * @type {number}
      * @memberof RecipeDto
      */
-    'cookTime'?: number;
+    'prepTimeMinutes'?: number;
+    /**
+     * The cook time hours for the recipe
+     * @type {number}
+     * @memberof RecipeDto
+     */
+    'cookTimeHours'?: number;
+    /**
+     * The cook time minutes for the recipe
+     * @type {number}
+     * @memberof RecipeDto
+     */
+    'cookTimeMinutes'?: number;
     /**
      * The ingredients for the recipe
      * @type {Array<string>}

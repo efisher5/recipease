@@ -15,8 +15,10 @@ import { setRequestHeaders } from '../../services/axios';
 interface Values {
     name: string,
     description: string,
-    prepTime: number,
-    cookTime: number,
+    prepTimeHours: number,
+    prepTimeMinutes: number,
+    cookTimeHours: number,
+    cookTimeMinutes: number,
     ingredients: string[],
     instructions: string[]
 }
@@ -60,8 +62,10 @@ export default function RecipeForm() {
         updatedRecipe.userId = recipe.userId;
         updatedRecipe.name = values.name;
         updatedRecipe.recipeDescription = values.recipeDescription;
-        updatedRecipe.cookTime = Number(values.cookTime);
-        updatedRecipe.prepTime = Number(values.prepTime);
+        updatedRecipe.prepTimeHours = Number(values.prepTimeHours);
+        updatedRecipe.cookTimeMinutes = Number(values.cookTimeMinutes);
+        updatedRecipe.cookTimeHours = Number(values.cookTimeHours);
+        updatedRecipe.prepTimeMinutes = Number(values.prepTimeMinutes);
         updatedRecipe.ingredients = values.ingredients;
         updatedRecipe.instructions = values.instructions;
         
@@ -92,8 +96,10 @@ export default function RecipeForm() {
                     initialValues={{
                         name: recipe.name || "",
                         description: recipe.recipeDescription || "",
-                        prepTime: recipe.prepTime || 0,
-                        cookTime: recipe.cookTime || 0,
+                        prepTimeHours: recipe.prepTimeHours || 0,
+                        prepTimeMinutes: recipe.prepTimeMinutes || 0,
+                        cookTimeHours: recipe.cookTimeHours || 0,
+                        cookTimeMinutes: recipe.cookTimeMinutes || 0,
                         ingredients: recipe.ingredients || [''],
                         instructions: recipe.instructions || ['']
                     }}
@@ -121,13 +127,25 @@ export default function RecipeForm() {
 
                             <div className='prep-cook-time'>
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='prepTime'>Prep Time</label>
-                                    <Field className='input input-max-width' id='prepTime' name='prepTime' type='number' />
+                                    <label className='recipe-form-label' htmlFor='prepTimeHours'>Prep Time</label>
+                                    <Field className='input input-min-width' id='prepTimeHours' name='prepTimeHours' type='number' /> 
+                                    <span>hrs.</span>
+
+                                    <span className='ml-1 mr-1'></span>
+
+                                    <Field className='input input-min-width' id='prepTimeMinutes' name='prepTimeMinutes' type='number' max='59' />
+                                    <span>mins.</span>
                                 </div>
 
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='cookTime'>Cook Time</label>
-                                    <Field className='input input-max-width' id='cookTime' name='cookTime' type='number' />
+                                    <label className='recipe-form-label' htmlFor='cookTimeHours'>Cook Time</label>
+                                    <Field className='input input-min-width' id='cookTimeHours' name='cookTimeHours' type='number' />
+                                    <span>hrs.</span>
+
+                                    <span className='ml-1 mr-1'></span>
+
+                                    <Field className='input input-min-width' id='cookTimeMinutes' name='cookTimeMinutes' type='number' max='59' />
+                                    <span>mins.</span>
                                 </div>
                             </div>
 
