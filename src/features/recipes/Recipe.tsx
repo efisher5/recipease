@@ -1,4 +1,3 @@
-import { useAppSelector } from "../../app/hooks"
 import './Recipe.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -31,7 +30,7 @@ export default function Recipe() {
                 <li key={ingredient} className='ingredient'>{ ingredient }</li>
             );
             let instructions = res!.instructions!.map(instruction =>
-                <li key={instruction}>{ instruction }</li>
+                <li key={instruction} className='instruction'>{ instruction }</li>
             );
             setRecipe(res!);
             setIngredients(ingredients);
@@ -56,38 +55,45 @@ export default function Recipe() {
                 </button>
             </div>
             <div className="recipe-border">
-                {/* Recipe Name & Description */}
-                <h1>{ recipe.name }</h1>
-                {recipe.recipeDescription && <h3>{ recipe.recipeDescription }</h3>}
-                
-                {/* Recipe Prep/Cook Time */}
-                <div className="times">
-                    <div className="prep">
-                        <h4 className="time-label">Prep Time</h4>
-                        {recipe.prepTimeHours !== 0 && <span>{ recipe.prepTimeHours + (recipe.prepTimeHours === 1 ? " hour " : " hours ") }</span>}
-                        <span>{ recipe.prepTimeMinutes + (recipe.prepTimeMinutes === 1 ? " minute" : " minutes") }</span>
+                <div className="recipe-layout">
+                    {/* Recipe Name & Description */}
+                    <h1>{ recipe.name }</h1>
+                    {recipe.notes && 
+                    <div>
+                        <label className="recipe-form-label">Notes</label>
+                        <p className="recipe-notes">{ recipe.notes }</p>
                     </div>
-                    <div className="cook">
-                        <h4 className="time-label">Cook Time</h4>
-                        {recipe.cookTimeHours !== 0 && <span>{ recipe.cookTimeHours + (recipe.cookTimeHours === 1 ? " hour " : " hours ") }</span>}
-                        <span>{ recipe.cookTimeMinutes + (recipe.cookTimeMinutes === 1 ? " minute" : " minutes") }</span>
+                    }
+                    
+                    {/* Recipe Prep/Cook Time */}
+                    <div className="times">
+                        <div className="prep">
+                            <label className="recipe-form-label">Prep Time</label>
+                            {recipe.prepTimeHours !== 0 && <span>{ recipe.prepTimeHours + (recipe.prepTimeHours === 1 ? " hour " : " hours ") }</span>}
+                            <span>{ recipe.prepTimeMinutes + (recipe.prepTimeMinutes === 1 ? " minute" : " minutes") }</span>
+                        </div>
+                        <div className="cook">
+                            <label className="recipe-form-label">Cook Time</label>
+                            {recipe.cookTimeHours !== 0 && <span>{ recipe.cookTimeHours + (recipe.cookTimeHours === 1 ? " hour " : " hours ") }</span>}
+                            <span>{ recipe.cookTimeMinutes + (recipe.cookTimeMinutes === 1 ? " minute" : " minutes") }</span>
+                        </div>
                     </div>
-                </div>
 
-                {/* Ingredients */}
-                <div className="list">
-                    <h4>Ingredients</h4>
-                    <ul>
-                        { ingredients }
-                    </ul>
-                </div>
+                    {/* Ingredients */}
+                    <div className="list">
+                        <label className="recipe-form-label">Ingredients</label>
+                        <ul className="ingredient-list">
+                            { ingredients }
+                        </ul>
+                    </div>
 
-                {/* Instructions */}
-                <div className="list">
-                    <h4>Instructions</h4>
-                    <ol type="1">
-                        { instructions }
-                    </ol>
+                    {/* Instructions */}
+                    <div className="list">
+                        <label className="recipe-form-label">Instructions</label>
+                        <ol type="1">
+                            { instructions }
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
