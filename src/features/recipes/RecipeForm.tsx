@@ -14,7 +14,7 @@ import { setRequestHeaders } from '../../services/axios';
 
 interface Values {
     name: string,
-    description: string,
+    notes: string,
     prepTimeHours: number,
     prepTimeMinutes: number,
     cookTimeHours: number,
@@ -61,7 +61,7 @@ export default function RecipeForm() {
         updatedRecipe.recipeId = recipe.recipeId;
         updatedRecipe.userId = recipe.userId;
         updatedRecipe.name = values.name;
-        updatedRecipe.recipeDescription = values.recipeDescription;
+        updatedRecipe.notes = values.notes;
         updatedRecipe.prepTimeHours = Number(values.prepTimeHours);
         updatedRecipe.cookTimeMinutes = Number(values.cookTimeMinutes);
         updatedRecipe.cookTimeHours = Number(values.cookTimeHours);
@@ -95,7 +95,7 @@ export default function RecipeForm() {
                     enableReinitialize
                     initialValues={{
                         name: recipe.name || "",
-                        description: recipe.recipeDescription || "",
+                        notes: recipe.notes || "",
                         prepTimeHours: recipe.prepTimeHours || 0,
                         prepTimeMinutes: recipe.prepTimeMinutes || 0,
                         cookTimeHours: recipe.cookTimeHours || 0,
@@ -119,10 +119,10 @@ export default function RecipeForm() {
                                     <Field className='input input-max-width' id='name' name='name' />
                                 </div>
 
-                                {/* <div className='my-1'>
-                                    <label className='recipe-form-label' htmlFor='description'>Description</label>
-                                    <Field className='input-field-wide' id='description' name='description' />
-                                </div> */}
+                                <div className='mb-1'>
+                                    <label className='recipe-form-label' htmlFor='notes'>Recipe Notes</label>
+                                    <Field className='input input-max-width' id='notes' name='notes' />
+                                </div>
                             </div>
 
                             <div className='prep-cook-time'>

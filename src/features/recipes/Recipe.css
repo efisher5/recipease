@@ -1,3 +1,9 @@
+.recipe-layout {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .recipe-border {
     background-color: white;
     border-radius: 10px;
@@ -7,35 +13,32 @@
 
 .times {
     display: flex;
-    justify-content: space-evenly;
-    text-align: center;
+    column-gap: 2rem;
+    margin-bottom: 1rem;
 }
 
-ul {
+.ingredient-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
     list-style-type: none;
+    padding: 0;
 }
 
-li {
+.instruction-list {
+    padding-left: 1rem;
+}
+
+.instruction {
     margin: 1rem 0;
 }
 
 .ingredient {
-    margin: .5rem 0;
+    margin-bottom: .5rem;
 }
 
 .list {
-    width: 70%;
-    position: relative;
-    left: 15%;
     margin-bottom: 2rem;
-}
-
-h4 {
-    text-align: center;
-}
-
-.time-label {
-    margin-bottom: .5rem;
 }
 
 .recipe-btn-group {
@@ -60,4 +63,12 @@ h4 {
 
 h1 {
     text-align: center;
+}
+
+.recipe-notes-wrapper {
+    margin-bottom: 1rem;
+}
+
+.recipe-notes {
+    margin: 0;
 }
