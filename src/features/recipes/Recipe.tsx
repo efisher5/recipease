@@ -59,7 +59,7 @@ export default function Recipe() {
                     {/* Recipe Name & Description */}
                     <h1>{ recipe.name }</h1>
                     {recipe.notes && 
-                    <div>
+                    <div className='recipe-notes-wrapper'>
                         <label className="recipe-form-label">Notes</label>
                         <p className="recipe-notes">{ recipe.notes }</p>
                     </div>
@@ -82,7 +82,7 @@ export default function Recipe() {
                     {/* Ingredients */}
                     <div className="list">
                         <label className="recipe-form-label">Ingredients</label>
-                        <ul className="ingredient-list">
+                        <ul className="recipe-list ingredient-list">
                             { ingredients }
                         </ul>
                     </div>
@@ -90,7 +90,7 @@ export default function Recipe() {
                     {/* Instructions */}
                     <div className="list">
                         <label className="recipe-form-label">Instructions</label>
-                        <ol type="1">
+                        <ol className='instruction-list' type="1">
                             { instructions }
                         </ol>
                     </div>

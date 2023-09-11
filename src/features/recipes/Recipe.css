@@ -13,11 +13,20 @@
 
 .times {
     display: flex;
-    justify-content: space-evenly;
+    column-gap: 2rem;
+    margin-bottom: 1rem;
 }
 
 .ingredient-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
     list-style-type: none;
+    padding: 0;
+}
+
+.instruction-list {
+    padding-left: 1rem;
 }
 
 .instruction {
@@ -25,7 +34,7 @@
 }
 
 .ingredient {
-    margin: .5rem 0;
+    margin-bottom: .5rem;
 }
 
 .list {
@@ -54,6 +63,10 @@
 
 h1 {
     text-align: center;
+}
+
+.recipe-notes-wrapper {
+    margin-bottom: 1rem;
 }
 
 .recipe-notes {
