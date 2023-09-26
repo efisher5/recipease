@@ -1,5 +1,4 @@
-import { Routes, Route } from "react-router-dom";
-import './App.scss';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from './features/home/Home';
 import Recipe from './features/recipes/Recipe';
 import Layout from "./features/layout/Layout";
@@ -7,17 +6,19 @@ import RecipeForm from "./features/recipes/RecipeForm";
 import LoginFormComponent from "./features/login/Login";
 import { AuthenticationGuard } from "./routes/PrivateRoutes";
 
-function App() {
-  return (
-    <Routes>
-      <Route element={<AuthenticationGuard component={Layout} />} path='/'>
-        <Route element={<Home />} path=''/>
-        <Route element={<Recipe />} path='recipe/:id'/>
-        <Route element={<RecipeForm />} path='recipe/:id/edit'/>
-      </Route>
-      <Route element={<LoginFormComponent />} path='login'/>
-    </Routes>
-  )
-}
+const router = createBrowserRouter([
+    { 
+        path: "/",
+        Component: () => <AuthenticationGuard component={Layout} />,
+        children: [
+            { path: "", Component: Home},
+            { path: "recipe/:id", Component: Recipe },
+            { path: "recipe/:id/edit", Component: RecipeForm }
+        ]
+    },
+    { path: "login", Component: LoginFormComponent }
+])
 
-export default App;
+export default function App() {
+    return <RouterProvider router={router} />
+}

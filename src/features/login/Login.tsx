@@ -1,8 +1,8 @@
 import { Formik, Form } from 'formik';
-import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
 import { useAuth0 } from '@auth0/auth0-react';
+import './Login.css';
 
 interface LoginValues {
     username: string;
