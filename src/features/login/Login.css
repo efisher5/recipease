@@ -11,6 +11,7 @@
     padding: 2rem;
     text-align: center;
     position: relative;
+    width: 15%;
 }
 
 .login-wrapper::before,
@@ -36,7 +37,7 @@
 }
 
 .login-title {
-    margin-top: 0;
+    margin: 0 0 .5rem;
 }
 
 .login-btn-wrapper {
