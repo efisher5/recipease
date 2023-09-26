@@ -1,11 +1,8 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import './Login.css';
+import { Formik, Form } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
-import { useAppDispatch } from '../../app/hooks';
-import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import './Login.css';
 
 interface LoginValues {
     username: string;
@@ -13,18 +10,11 @@ interface LoginValues {
 }
 
 export default function LoginForm() {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const { loginWithRedirect } = useAuth0();
 
     const initialValues: LoginValues = {
         username: '',
         password: ''
-    }
-
-    const handleSubmit = (values: LoginValues) => {
-        console.log(values);
-        
     }
 
     return (
@@ -33,7 +23,8 @@ export default function LoginForm() {
                 <div className='icon-wrapper'>
                     <FontAwesomeIcon icon={faMortarPestle} size='2x' className='secondary-color' />
                 </div>
-                <h2 className='login-title'>Welcome to Recipease!</h2>
+                <h2 className='login-title'>Recipease</h2>
+                <div>Let's get cookin'</div>
                 <Formik initialValues={initialValues} onSubmit={() => loginWithRedirect()}>
                     {() => (
                         <Form>

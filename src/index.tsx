@@ -22,11 +22,9 @@ root.render(
       }}
     >
 
-    <BrowserRouter>
     <Provider store={store}>
       <App />
     </Provider>
-    </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>
 );
