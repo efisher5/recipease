@@ -11,7 +11,7 @@
 }
 
 svg {
-    color: #0041cc;
+    color: var(--primary);
     position: relative;
 }
 
