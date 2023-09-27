@@ -3,6 +3,10 @@
     --secondary: #ce1141;
 }
 
+.secondary-color {
+    color: var(--secondary);
+}
+
 .base-btn {
     background-color: transparent;
     cursor: pointer;
