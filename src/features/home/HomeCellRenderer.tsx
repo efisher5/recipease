@@ -12,8 +12,8 @@ export default function (props: any) {
     }
 
     return (
-        <div onClick={fetchRecipe} className={ homeCellRendererStyles.link }>
-            <button className={ homeCellRendererStyles.linkComp }>{cellValue}</button>
+        <div onClick={fetchRecipe} className={homeCellRendererStyles.link}>
+            <button className={homeCellRendererStyles.linkComp}>{cellValue}</button>
             <FontAwesomeIcon icon={faUpRightFromSquare} />
         </div>
     )

@@ -1,22 +1,12 @@
 import { Outlet, useNavigate } from "react-router-dom"
-import "./Layout.css";
 import { useAuth0 } from "@auth0/auth0-react"
-import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
+import layoutStyles from  "./Layout.module.css";
 
 export default function Layout() {
     const navigate = useNavigate();
-    const { logout, isAuthenticated, user } = useAuth0();
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            if (!isAuthenticated) {
-                navigate('/login')
-            }
-        }
-        //checkAuth();
-    }, [])
+    const { logout, user } = useAuth0();
 
     const returnHome = () => {
         const route = '/';
@@ -26,18 +16,18 @@ export default function Layout() {
     return (
         <>
         {/* Header */}
-        <header className="header">
-            <div className="header-content">
-                <div className="home-btn-container">
-                        <button className="base-btn home-btn" onClick={returnHome}>
-                            <FontAwesomeIcon icon={faMortarPestle} size="2x" className="home-icon" />
-                            <h1 className="title">Recipease</h1>
+        <header className={layoutStyles.header}>
+            <div className={layoutStyles.headerContent}>
+                <div className={layoutStyles.homeBtnContainer}>
+                        <button className={`${layoutStyles.homeBtn} base-btn`} onClick={returnHome}>
+                            <FontAwesomeIcon icon={faMortarPestle} size="2x" className={layoutStyles.homeIcon} />
+                            <h1 className={layoutStyles.title}>Recipease</h1>
                         </button>
                     </div>
-                <div className="user-container">
-                    <div className="user">Hi { user?.name }</div>
+                <div className={layoutStyles.userContainer}>
+                    <div className={layoutStyles.user}>Hi { user?.name }</div>
                     <div>
-                        <button id="logout-btn" className="base-btn" onClick={() => logout({ logoutParams: { returnTo: 'http://localhost:3001/login' } })}>
+                        <button id={layoutStyles.logoutBtn} className="base-btn" onClick={() => logout({ logoutParams: { returnTo: 'http://localhost:3001/login' } })}>
                             Log Out
                         </button>
                     </div>
@@ -46,13 +36,13 @@ export default function Layout() {
         </header>
         
         {/* Body */}
-        <div className="body">
+        <div className={layoutStyles.body}>
             <Outlet />
         </div>
         
         {/* Footer */}
-        <footer className="footer">
-            <div className="divider"></div>
+        <footer className={layoutStyles.footer}>
+            <div className={layoutStyles.divider}></div>
             {/* <div>© Evan Fisher 2023</div> */}
         </footer>
         </>

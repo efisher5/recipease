@@ -54,9 +54,9 @@ export default function Home() {
 
    return (
         <div>
-            <div className={ homeStyles.tableHeader }>
+            <div className={homeStyles.tableHeader}>
                 <button onClick={makeRecipe} type="button" className="recipe-btn">
-                    <span className={ homeStyles.newRecipeBtnText }>New Recipe</span>
+                    <span className={homeStyles.newRecipeBtnText}>New Recipe</span>
                     <FontAwesomeIcon icon={faCirclePlus} size="2x" />
                 </button>
             </div>
