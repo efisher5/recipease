@@ -1,0 +1,10 @@
+/* Created because these styles apply to AG Grid table
+and are not being picked up in the CSS Modules file */
+.ag-root-wrapper {
+    border: none;
+    border-radius: 15px;
+}
+
+.ag-header {
+    border-bottom: none;
+}
