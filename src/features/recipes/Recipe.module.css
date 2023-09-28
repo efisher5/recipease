@@ -1,0 +1,47 @@
+.recipeLayout {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.times {
+    display: flex;
+    column-gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.ingredientList {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    list-style-type: none;
+    padding: 0;
+}
+
+.instructionList {
+    padding-left: 1rem;
+}
+
+.instruction {
+    margin: 1rem 0;
+}
+
+.ingredient {
+    margin-bottom: .5rem;
+}
+
+.list {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.recipeNotesWrapper {
+    margin-bottom: 1rem;
+}
+
+.recipeNotes {
+    margin: 0;
+}
