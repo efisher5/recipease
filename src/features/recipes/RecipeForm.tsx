@@ -1,16 +1,17 @@
-import '../../global.css';
-import './RecipeForm.css';
+import { useMemo, useState } from "react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Formik, Form, Field, FieldArray } from 'formik';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useMemo, useState } from "react";
 import { useAppDispatch } from '../../app/hooks';
 import { getRecipe, updateRecipe } from "./recipeSlice";
 import { RecipeDto } from "../../openapi";
-import { Formik, Form, Field, FieldArray } from 'formik';
 import DeleteRecipeModal from './DeleteRecipeModal';
-import { useAuth0 } from '@auth0/auth0-react';
 import { setRequestHeaders } from '../../services/axios';
+import '../../global.css';
+import recipeFormStyles from './RecipeForm.module.css';
+import recipeCommonStyles from './RecipeCommon.module.css';
 
 interface Values {
     name: string,
@@ -42,7 +43,7 @@ export default function RecipeForm() {
             const res = await dispatch(getRecipe(recipeId)).unwrap();
             
             let ingredients = res!.ingredients!.map(ingredient =>
-                <li key={ingredient} className='ingredient'>{ ingredient }</li>
+                <li key={ingredient}>{ ingredient }</li>
             );
             let instructions = res!.instructions!.map(instruction =>
                 <li key={instruction}>{ instruction }</li>
@@ -83,14 +84,14 @@ export default function RecipeForm() {
 
     return (
         <div>
-            <div className="recipe-btn-group">
-                <button onClick={viewRecipe} type="button" className="recipe-btn">
-                    <span className="recipe-btn-text">View</span>
+            <div className={recipeCommonStyles.recipeBtnGroup}>
+                <button onClick={viewRecipe} type="button" className={recipeCommonStyles.recipeBtn}>
+                    <span className={recipeCommonStyles.recipeBtnText}>View</span>
                     <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
                 </button>
             </div>
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}
-            <div className="recipe-border">
+            <div className={recipeCommonStyles.recipeBorder}>
                 <Formik
                     enableReinitialize
                     initialValues={{
@@ -112,61 +113,61 @@ export default function RecipeForm() {
                     }}
                 >
                     {({ values }) => (
-                        <Form className='recipe-form'>
+                        <Form className={recipeFormStyles.recipeForm}>
                             <div>
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='name'>Recipe Name</label>
-                                    <Field className='input input-max-width' id='name' name='name' />
+                                    <label className={recipeCommonStyles.recipeFormLabel} htmlFor='name'>Recipe Name</label>
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMaxWidth}`} id='name' name='name' />
                                 </div>
 
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='notes'>Recipe Notes</label>
-                                    <Field className='input input-max-width' id='notes' name='notes' />
+                                    <label className={recipeCommonStyles.recipeFormLabel} htmlFor='notes'>Recipe Notes</label>
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMaxWidth}`} id='notes' name='notes' />
                                 </div>
                             </div>
 
-                            <div className='prep-cook-time'>
+                            <div className={recipeFormStyles.prepCookTime}>
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='prepTimeHours'>Prep Time</label>
-                                    <Field className='input input-min-width' id='prepTimeHours' name='prepTimeHours' type='number' /> 
+                                    <label className={recipeCommonStyles.recipeFormLabel} htmlFor='prepTimeHours'>Prep Time</label>
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMinWidth}`} id='prepTimeHours' name='prepTimeHours' type='number' /> 
                                     <span>hrs.</span>
 
                                     <span className='ml-1 mr-1'></span>
 
-                                    <Field className='input input-min-width' id='prepTimeMinutes' name='prepTimeMinutes' type='number' max='59' />
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMinWidth}`} id='prepTimeMinutes' name='prepTimeMinutes' type='number' max='59' />
                                     <span>mins.</span>
                                 </div>
 
                                 <div className='mb-1'>
-                                    <label className='recipe-form-label' htmlFor='cookTimeHours'>Cook Time</label>
-                                    <Field className='input input-min-width' id='cookTimeHours' name='cookTimeHours' type='number' />
+                                    <label className={recipeCommonStyles.recipeFormLabel} htmlFor='cookTimeHours'>Cook Time</label>
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMinWidth}`} id='cookTimeHours' name='cookTimeHours' type='number' />
                                     <span>hrs.</span>
 
                                     <span className='ml-1 mr-1'></span>
 
-                                    <Field className='input input-min-width' id='cookTimeMinutes' name='cookTimeMinutes' type='number' max='59' />
+                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputMinWidth}`} id='cookTimeMinutes' name='cookTimeMinutes' type='number' max='59' />
                                     <span>mins.</span>
                                 </div>
                             </div>
 
-                            <label className='recipe-form-label' htmlFor='ingredients'>Ingredients</label>
+                            <label className={recipeCommonStyles.recipeFormLabel} htmlFor='ingredients'>Ingredients</label>
                             <FieldArray name='ingredients'>
                                 {({ insert, remove, push}) => (
                                     <div>
                                         {values.ingredients.length > 0 &&
                                         values.ingredients.map((ingredient, index) => (
-                                            <div className='instruction-element' key={index}>
+                                            <div className={recipeFormStyles.listElement} key={index}>
                                                 <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field className='input input-flex' name={`ingredients.${index}`} />
+                                                <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex}`} name={`ingredients.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className='secondary-color' />
                                                 </button>
                                             </div>
                                         ))}
 
-                                        <div className='add-btn-row'>
-                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push('')}>
-                                                <span className='add-btn-span'>Add Ingredient</span>
+                                        <div className={recipeFormStyles.addBtnRow}>
+                                            <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
+                                                <span className={recipeFormStyles.addBtnSpan}>Add Ingredient</span>
                                                 <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
                                         </div>
@@ -174,24 +175,24 @@ export default function RecipeForm() {
                                 )}
                             </FieldArray>
 
-                            <label className='recipe-form-label' htmlFor='instructions'>Instructions</label>
+                            <label className={recipeCommonStyles.recipeFormLabel} htmlFor='instructions'>Instructions</label>
                             <FieldArray name='instructions'>
                                 {({ insert, remove, push}) => (
-                                    <div className='input-list'>
+                                    <div className={recipeFormStyles.inputList}>
                                         {values.instructions.length > 0 &&
                                         values.instructions.map((ingredient, index) => (
-                                            <div className='instruction-element' key={index}>
+                                            <div className={recipeFormStyles.listElement} key={index}>
                                                 <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field component='textarea' rows='3' className='input input-flex textarea' name={`instructions.${index}`} />
+                                                <Field component='textarea' rows='3' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} name={`instructions.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
                                                     <FontAwesomeIcon icon={faXmark} size='lg' className="secondary-color"/>
                                                 </button>
                                             </div>
                                         ))}
 
-                                        <div className='add-btn-row'>
-                                            <button disabled={isOpen} className='base-btn add-btn' type='button' onClick={() => push('')}>
-                                                <span className='add-btn-span'>Add Instruction</span>
+                                        <div className={recipeFormStyles.addBtnRow}>
+                                            <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
+                                                <span className={recipeFormStyles.addBtnSpan}>Add Instruction</span>
                                                 <FontAwesomeIcon icon={faPlus} size="lg" />
                                             </button>
                                         </div>
@@ -199,9 +200,9 @@ export default function RecipeForm() {
                                 )}
                             </FieldArray>
 
-                            <div className='submit-btn-row'>
-                                <button disabled={isOpen} className='form-btn delete-btn' type='button' onClick={() => setIsOpen(true)}>Delete</button>
-                                <button disabled={isOpen} className='form-btn submit-btn' type='submit'>Save</button>
+                            <div className={recipeFormStyles.submitBtnRow}>
+                                <button disabled={isOpen} className={`${recipeFormStyles.formBtn} ${recipeFormStyles.deleteBtn}`} type='button' onClick={() => setIsOpen(true)}>Delete</button>
+                                <button disabled={isOpen} className={`${recipeFormStyles.formBtn} ${recipeFormStyles.submitBtn}`} type='submit'>Save</button>
                             </div>
                         </Form>
                     )}
