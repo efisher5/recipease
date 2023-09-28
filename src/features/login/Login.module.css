@@ -1,11 +1,11 @@
-.login-form {
+.loginForm{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.login-wrapper {
+.loginWrapper {
     background-color: white;
     border-radius: 12px;
     padding: 2rem;
@@ -14,39 +14,39 @@
     width: 15%;
 }
 
-.login-wrapper::before,
-.login-wrapper::after {
+.loginWrapper::before,
+.loginWrapper::after {
     position: absolute;
     width: 33px;
     height: 20px;
     content: "";
 }
 
-.login-wrapper::before {
+.loginWrapper::before {
     left: 0;
     top: 0;
-    border-left: 3px solid #ce1141;
-    border-top: 3px solid #ce1141;
+    border-left: 3px solid var(--secondary);
+    border-top: 3px solid var(--secondary);
 }
 
-.login-wrapper::after {
+.loginWrapper::after {
     right: 0;
     bottom: 0;
-    border-right: 3px solid #0041cc;
-    border-bottom: 3px solid #0041cc;
+    border-right: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
 }
 
-.login-title {
+.loginTitle {
     margin: 0 0 .5rem;
 }
 
-.login-btn-wrapper {
+.loginBtnWrapper {
     margin-top: 1rem;
 }
 
-.login-btn {
+.loginBtn {
     cursor: pointer;
-    background-color: #0041cc;
+    background-color: var(--primary);
     border: none;
     color: white;
     padding: 10px 20px;
@@ -54,14 +54,14 @@
     font-weight: bold;
 }
 
-.login-btn:hover {
+.loginBtn:hover {
     opacity: 0.7;
 }
 
-.input-field-normal {
+.inputFieldNormal {
     width: 75%;
 }
 
-.icon-wrapper {
+.iconWrapper {
     margin-bottom: 1rem;
 }

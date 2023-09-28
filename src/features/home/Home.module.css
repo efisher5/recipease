@@ -1,27 +1,17 @@
-.table-header {
+.tableHeader {
     display: flex;
     justify-content: flex-end;
     margin: 2rem auto 1rem;
 }
 
-.new-recipe-btn-text {
+.newRecipeBtnText {
     position: relative;
     right: .3rem;
     bottom: .2rem;
 }
 
 svg {
-    color: #0041cc;
+    color: var(--primary);
     position: relative;
-}
-
-.ag-root-wrapper {
-    border: none;
-    border-radius: 15px;
-    
-}
-
-.ag-header {
-    border-bottom: none;
 }
 

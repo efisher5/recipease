@@ -1,12 +1,9 @@
-import './HomeCellRenderer.css';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../app/hooks';
-import { getRecipe } from '../recipes/recipeSlice';
+import homeCellRendererStyles from './HomeCellRenderer.module.css';
 
 export default function (props: any) {
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const cellValue = props.valueFormatted ? props.valueFormatted : props.value;
     
@@ -15,8 +12,8 @@ export default function (props: any) {
     }
 
     return (
-        <div onClick={fetchRecipe} className='link'>
-            <button className='link-comp'>{cellValue}</button>
+        <div onClick={fetchRecipe} className={homeCellRendererStyles.link}>
+            <button className={homeCellRendererStyles.linkComp}>{cellValue}</button>
             <FontAwesomeIcon icon={faUpRightFromSquare} />
         </div>
     )

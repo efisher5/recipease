@@ -1,13 +1,14 @@
-import './Recipe.css';
+import { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from '../../app/hooks';
 import { getRecipe } from "./recipeSlice";
 import { RecipeDto } from "../../openapi";
 import { setRequestHeaders } from "../../services/axios";
-import { useAuth0 } from "@auth0/auth0-react";
+import recipeStyles from './Recipe.module.css';
+import recipeCommonStyles from './RecipeCommon.module.css';
 
 export default function Recipe() {
     const dispatch = useAppDispatch();
@@ -27,10 +28,10 @@ export default function Recipe() {
             const res = await dispatch(getRecipe(recipeId)).unwrap();
             
             let ingredients = res!.ingredients!.map(ingredient =>
-                <li key={ingredient} className='ingredient'>{ ingredient }</li>
+                <li key={ingredient} className={recipeStyles.ingredient}>{ ingredient }</li>
             );
             let instructions = res!.instructions!.map(instruction =>
-                <li key={instruction} className='instruction'>{ instruction }</li>
+                <li key={instruction} className={recipeStyles.instruction}>{ instruction }</li>
             );
             setRecipe(res!);
             setIngredients(ingredients);
@@ -48,49 +49,49 @@ export default function Recipe() {
 
     return (
         <div>
-            <div className="recipe-btn-group">
-                <button onClick={editForm} type="button" className="recipe-btn">
-                    <span className="recipe-btn-text">Edit</span>
+            <div className={recipeCommonStyles.recipeBtnGroup}>
+                <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
+                    <span className={recipeCommonStyles.recipeBtnText}>Edit</span>
                     <FontAwesomeIcon icon={faPenToSquare} size="2x" />
                 </button>
             </div>
-            <div className="recipe-border">
-                <div className="recipe-layout">
+            <div className={recipeCommonStyles.recipeBorder}>
+                <div className={recipeStyles.recipeLayout}>
                     {/* Recipe Name & Description */}
                     <h1>{ recipe.name }</h1>
                     {recipe.notes && 
-                    <div className='recipe-notes-wrapper'>
-                        <label className="recipe-form-label">Notes</label>
-                        <p className="recipe-notes">{ recipe.notes }</p>
+                    <div className={recipeStyles.recipeNotesWrapper}>
+                        <label className={recipeCommonStyles.recipeFormLabel}>Notes</label>
+                        <p className={recipeStyles.recipeNotes}>{ recipe.notes }</p>
                     </div>
                     }
                     
                     {/* Recipe Prep/Cook Time */}
-                    <div className="times">
-                        <div className="prep">
-                            <label className="recipe-form-label">Prep Time</label>
+                    <div className={recipeStyles.times}>
+                        <div className={recipeStyles.prep}>
+                            <label className={recipeCommonStyles.recipeFormLabel}>Prep Time</label>
                             {recipe.prepTimeHours !== 0 && <span>{ recipe.prepTimeHours + (recipe.prepTimeHours === 1 ? " hour " : " hours ") }</span>}
                             <span>{ recipe.prepTimeMinutes + (recipe.prepTimeMinutes === 1 ? " minute" : " minutes") }</span>
                         </div>
-                        <div className="cook">
-                            <label className="recipe-form-label">Cook Time</label>
+                        <div className={recipeStyles.cook}>
+                            <label className={recipeCommonStyles.recipeFormLabel}>Cook Time</label>
                             {recipe.cookTimeHours !== 0 && <span>{ recipe.cookTimeHours + (recipe.cookTimeHours === 1 ? " hour " : " hours ") }</span>}
                             <span>{ recipe.cookTimeMinutes + (recipe.cookTimeMinutes === 1 ? " minute" : " minutes") }</span>
                         </div>
                     </div>
 
                     {/* Ingredients */}
-                    <div className="list">
-                        <label className="recipe-form-label">Ingredients</label>
-                        <ul className="recipe-list ingredient-list">
+                    <div className={recipeStyles.list}>
+                        <label className={recipeCommonStyles.recipeFormLabel}>Ingredients</label>
+                        <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
                             { ingredients }
                         </ul>
                     </div>
 
                     {/* Instructions */}
-                    <div className="list">
-                        <label className="recipe-form-label">Instructions</label>
-                        <ol className='instruction-list' type="1">
+                    <div className={recipeStyles.list}>
+                        <label className={recipeCommonStyles.recipeFormLabel}>Instructions</label>
+                        <ol className={recipeStyles.instructionList} type="1">
                             { instructions }
                         </ol>
                     </div>

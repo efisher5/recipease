@@ -1,14 +1,7 @@
-.recipe-form {
+.recipeForm {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-}
-
-.recipe-form-label {
-    display: block;
-    font-weight: bold;
-    font-size: large;
-    margin-bottom: .5rem;
 }
 
 .input {
@@ -17,32 +10,32 @@
     border: 1px solid lightgrey;
 }
 
-.input-max-width {
+.inputMaxWidth {
     width: 100%;
 }
 
-.input-min-width {
+.inputMinWidth {
     width: 15%;
     margin-right: 5px;
 }
 
-.input-flex {
+.inputFlex {
     flex-grow: 1;
 }
 
-.prep-cook-time {
+.prepCookTime {
     display: flex;
     justify-content: space-evenly;
 }
 
-.submit-btn-row {
+.submitBtnRow {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 2rem;
 }
 
-.form-btn {
+.formBtn {
     background-color: transparent;
     cursor: pointer;
     border-radius: 8px;
@@ -50,38 +43,38 @@
     font-weight: bold;
 }
 
-.form-btn:hover {
+.formBtn:hover {
     opacity: 0.7;
 }
 
-.delete-btn {
+.deleteBtn {
     border: 1px solid var(--secondary);
     color: var(--secondary);
 }
 
-.submit-btn {
+.submitBtn {
     border: 1px solid var(--primary);
     background-color: var(--primary);
     color: white;
 }
 
-.add-btn-row {
+.addBtnRow {
     margin: 1rem 0;
     text-align: right;
 }
 
-.add-btn {
+.addBtn {
     padding: 10px;
     font-weight: bold;
     position: relative;
     right: 1.5rem;
 }
 
-.add-btn-span {
+.addBtnSpan {
     margin-right: .25rem;
 }
 
-.instruction-element {
+.listElement {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -91,8 +84,4 @@
 .textarea {
     resize: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-}
-
-.secondary-color {
-    color: var(--secondary);
 }

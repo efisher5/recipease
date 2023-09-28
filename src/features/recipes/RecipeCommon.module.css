@@ -1,0 +1,33 @@
+.recipeBtnGroup {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.recipeBtn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.recipeBtnText {
+    position: relative;
+    right: .3rem;
+    bottom: .2rem;
+}
+
+.recipeBorder {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+.recipeFormLabel {
+    display: block;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: .5rem;
+}

@@ -1,18 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
-import { createRecipe, getRecipes } from "../recipes/recipeSlice";
-
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { useAppDispatch } from "../../app/hooks";
-import { RecipeListingDto } from "../../openapi";
-import './Home.css';
-import HomeCellRenderer from "./HomeCellRenderer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useAppDispatch } from "../../app/hooks";
+import { RecipeListingDto } from "../../openapi";
+import HomeCellRenderer from "./HomeCellRenderer";
 import { setRequestHeaders } from "../../services/axios";
+import { createRecipe, getRecipes } from "../recipes/recipeSlice";
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
+import homeStyles from './Home.module.css';
+import './Table.css'
 
 export default function Home() {
     const dispatch = useAppDispatch();
@@ -54,9 +54,9 @@ export default function Home() {
 
    return (
         <div>
-            <div className="table-header">
+            <div className={homeStyles.tableHeader}>
                 <button onClick={makeRecipe} type="button" className="recipe-btn">
-                    <span className="new-recipe-btn-text">New Recipe</span>
+                    <span className={homeStyles.newRecipeBtnText}>New Recipe</span>
                     <FontAwesomeIcon icon={faCirclePlus} size="2x" />
                 </button>
             </div>
