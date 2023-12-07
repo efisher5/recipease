@@ -1,18 +1,15 @@
 import { useMemo, useState } from "react";
-import { AgGridReact } from "ag-grid-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from "../../app/hooks";
 import { RecipeListingDto } from "../../openapi";
-import HomeCellRenderer from "./HomeCellRenderer";
 import { setRequestHeaders } from "../../services/axios";
 import { createRecipe, getRecipes } from "../recipes/recipeSlice";
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import homeStyles from './Home.module.css';
-import './Table.css'
 import '../../global.css';
 
 export default function Home() {
@@ -28,24 +25,12 @@ export default function Home() {
         setRequestHeaders([{ key: 'Authorization', value: `Bearer ${accessToken}` }])
 
         const res = await dispatch(getRecipes()).unwrap();
-        setRowData(res!);
+        setRecipeListings(res!);
     }
     fetchRecipes();
    }, [])
     
-   // AG Grid Setup
-   const [rowData, setRowData] = useState([] as RecipeListingDto[]);
-   const defaultColDef = useMemo(() => {
-    return {
-        filter: 'agTextColumnFilter',
-        sortable: true
-    }
-   }, [])
-   const [columnDefs, setColumnDefs] = useState([
-       { headerName: 'Recipe', field: 'name', minWidth: 300, flex: 1, cellRenderer: HomeCellRenderer },
-       { headerName: 'Time', field: 'totalTime', minWidth: 150 },
-       { headerName: 'Date Created', field: 'createdTs', minWidth: 250 }
-   ])
+   const [recipeListings, setRecipeListings] = useState([] as RecipeListingDto[]);
 
    const makeRecipe = async () => {
     const res = await dispatch(createRecipe()).unwrap();
@@ -66,7 +51,7 @@ export default function Home() {
             </div>
             
             <div className={homeStyles.cardGrid}>
-                    {rowData.map((recipe, index) => (
+                    {recipeListings.map((recipe, index) => (
                         <div className={homeStyles.card}>
                             <button onClick={() => fetchRecipe(recipe.recipeId!)} type="button" className={homeStyles.cardBtn}>
                                 <div className={homeStyles.cardText}>
@@ -81,17 +66,6 @@ export default function Home() {
                         </div>
                     ))}
             </div>
-            
-            {/*<div className="ag-theme-alpine" style={{height: 650, width: '100%'}}>
-                <AgGridReact
-                    rowData={rowData}
-                    columnDefs={columnDefs}
-                    defaultColDef={defaultColDef}
-                    pagination={true}
-                    paginationPageSize={25}
-                    >
-                </AgGridReact>
-            </div>*/}
         </div>
    )
 }
