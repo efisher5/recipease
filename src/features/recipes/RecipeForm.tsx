@@ -86,8 +86,7 @@ export default function RecipeForm() {
         <div>
             <div className={recipeCommonStyles.recipeBtnGroup}>
                 <button onClick={viewRecipe} type="button" className={recipeCommonStyles.recipeBtn}>
-                    <span className={recipeCommonStyles.recipeBtnText}>View</span>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
+                    <span className={recipeCommonStyles.recipeBtnText}>View Recipe</span>
                 </button>
             </div>
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}

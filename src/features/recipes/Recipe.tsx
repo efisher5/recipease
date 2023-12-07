@@ -1,6 +1,4 @@
 import { useMemo, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from '../../app/hooks';
@@ -51,8 +49,7 @@ export default function Recipe() {
         <div>
             <div className={recipeCommonStyles.recipeBtnGroup}>
                 <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
-                    <span className={recipeCommonStyles.recipeBtnText}>Edit</span>
-                    <FontAwesomeIcon icon={faPenToSquare} size="2x" />
+                    <span className={recipeCommonStyles.recipeBtnText}>Edit Recipe</span>
                 </button>
             </div>
             <div className={recipeCommonStyles.recipeBorder}>

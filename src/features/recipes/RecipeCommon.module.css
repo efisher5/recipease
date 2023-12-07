@@ -5,24 +5,20 @@
 }
 
 .recipeBtn {
-    background-color: transparent;
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
     cursor: pointer;
     border: none;
     font-weight: bold;
     margin-left: 1rem;
 }
 
-.recipeBtnText {
-    position: relative;
-    right: .3rem;
-    bottom: .2rem;
-}
-
 .recipeBorder {
     background-color: white;
     border-radius: 10px;
-    margin-top: 1rem;
-    padding: 2rem 0;
+    margin: 1rem 0;
 }
 
 .recipeFormLabel {

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from "../../app/hooks";
@@ -53,14 +53,36 @@ export default function Home() {
     navigate(route);
    }
 
+   const fetchRecipe = async (recipeId: string) => {
+        navigate('recipe/' + recipeId)
+   }
+
    return (
         <div>
             <div className={homeStyles.tableHeader}>
                 <button onClick={makeRecipe} type="button" className={homeStyles.recipeBtn}>
-                    <span className={homeStyles.newRecipeBtnText}>New Recipe</span>
+                    <span>New Recipe</span>
                 </button>
             </div>
-            <div className="ag-theme-alpine" style={{height: 650, width: '100%'}}>
+            
+            <div className={homeStyles.cardGrid}>
+                    {rowData.map((recipe, index) => (
+                        <div className={homeStyles.card}>
+                            <button onClick={() => fetchRecipe(recipe.recipeId!)} type="button" className={homeStyles.cardBtn}>
+                                <div className={homeStyles.cardText}>
+                                    <div className={homeStyles.cardHeader}>{ recipe.name }</div>
+                                    <FontAwesomeIcon icon={faClock} size="sm" />
+                                    <span className={homeStyles.time}>30 mins</span>
+                                </div>
+                                <div className={homeStyles.cardImage}>
+                                    Image Placeholder
+                                </div>
+                            </button>
+                        </div>
+                    ))}
+            </div>
+            
+            {/*<div className="ag-theme-alpine" style={{height: 650, width: '100%'}}>
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={columnDefs}
@@ -69,7 +91,7 @@ export default function Home() {
                     paginationPageSize={25}
                     >
                 </AgGridReact>
-            </div>
+            </div>*/}
         </div>
    )
 }
