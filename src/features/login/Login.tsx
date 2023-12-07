@@ -21,7 +21,7 @@ export default function LoginForm() {
         <div className={loginStyles.loginForm}>
             <div className={loginStyles.loginWrapper}>
                 <div className={loginStyles.iconWrapper}>
-                    <FontAwesomeIcon icon={faMortarPestle} size='2x' className='secondary-color' />
+                    <FontAwesomeIcon icon={faMortarPestle} size='2x' className='danger-color' />
                 </div>
                 <h2 className={loginStyles.loginTitle}>Recipease</h2>
                 <div>Let's get cookin'</div>

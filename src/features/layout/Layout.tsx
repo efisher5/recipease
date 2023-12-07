@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import layoutStyles from  "./Layout.module.css";
 
 export default function Layout() {
@@ -28,7 +28,7 @@ export default function Layout() {
                     <div className={layoutStyles.user}>Hi { user?.name }</div>
                     <div>
                         <button id={layoutStyles.logoutBtn} className="base-btn" onClick={() => logout({ logoutParams: { returnTo: 'http://localhost:3001/login' } })}>
-                            Log Out
+                            <FontAwesomeIcon icon={faBars} size="2x" />
                         </button>
                     </div>
                 </div>

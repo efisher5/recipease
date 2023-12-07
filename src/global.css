@@ -1,10 +1,15 @@
 :root {
-    --primary: #0041cc;
-    --secondary: #ce1141;
+    /*--primary: #0041cc;*/
+   --primary: #03974a;
+    --danger: #ce1141;
 }
 
-.secondary-color {
-    color: var(--secondary);
+.primary-color {
+    color: var(--primary);
+}
+
+.danger-color {
+    color: var(--danger);
 }
 
 .base-btn {

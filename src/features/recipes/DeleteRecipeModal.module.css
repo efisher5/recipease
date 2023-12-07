@@ -61,7 +61,7 @@
 }
 
 .modalDeleteBtn {
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--danger);
   color: white;
-  background: var(--secondary);
+  background: var(--danger);
 }

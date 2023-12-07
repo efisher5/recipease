@@ -160,7 +160,7 @@ export default function RecipeForm() {
                                                 <span><b>{ index + 1 + '.' }</b></span>
                                                 <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex}`} name={`ingredients.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                    <FontAwesomeIcon icon={faXmark} size='lg' className='secondary-color' />
+                                                    <FontAwesomeIcon icon={faXmark} size='lg' className='danger-color' />
                                                 </button>
                                             </div>
                                         ))}
@@ -185,7 +185,7 @@ export default function RecipeForm() {
                                                 <span><b>{ index + 1 + '.' }</b></span>
                                                 <Field component='textarea' rows='3' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} name={`instructions.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                    <FontAwesomeIcon icon={faXmark} size='lg' className="secondary-color"/>
+                                                    <FontAwesomeIcon icon={faXmark} size='lg' className="danger-color"/>
                                                 </button>
                                             </div>
                                         ))}

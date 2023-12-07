@@ -48,8 +48,8 @@
 }
 
 .deleteBtn {
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
+    border: 1px solid var(--danger);
+    color: var(--danger);
 }
 
 .submitBtn {

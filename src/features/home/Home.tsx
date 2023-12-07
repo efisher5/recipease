@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from "../../app/hooks";
@@ -13,6 +13,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import homeStyles from './Home.module.css';
 import './Table.css'
+import '../../global.css';
 
 export default function Home() {
     const dispatch = useAppDispatch();
@@ -57,7 +58,6 @@ export default function Home() {
             <div className={homeStyles.tableHeader}>
                 <button onClick={makeRecipe} type="button" className={homeStyles.recipeBtn}>
                     <span className={homeStyles.newRecipeBtnText}>New Recipe</span>
-                    <FontAwesomeIcon icon={faCirclePlus} size="2x" />
                 </button>
             </div>
             <div className="ag-theme-alpine" style={{height: 650, width: '100%'}}>
