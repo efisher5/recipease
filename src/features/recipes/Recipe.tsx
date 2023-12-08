@@ -48,7 +48,7 @@ export default function Recipe() {
     return (
         <div className="mt-1">
             <div className={recipeCommonStyles.recipeBorder}>
-                <div className={recipeStyles.recipeLayout}>
+                <div className={recipeCommonStyles.recipeLayout}>
                     {/* Recipe Name & Description */}
                     <h1>{ recipe.name }</h1>
                     {recipe.notes && 
@@ -73,7 +73,7 @@ export default function Recipe() {
                     </div>
 
                     {/* Ingredients */}
-                    <div className={recipeStyles.list}>
+                    <div className={recipeStyles.ingredientsList}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Ingredients</label>
                         <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
                             { ingredients }

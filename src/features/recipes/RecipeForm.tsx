@@ -90,7 +90,7 @@ export default function RecipeForm() {
                 </button>
             </div>
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}
-            <div className={recipeFormStyles.recipeFormContainer}>
+            <div className={recipeCommonStyles.recipeLayout}>
                 <Formik
                     enableReinitialize
                     initialValues={{
@@ -112,7 +112,7 @@ export default function RecipeForm() {
                     }}
                 >
                     {({ values }) => (
-                        <Form className={recipeFormStyles.recipeForm}>
+                        <Form>
                             <div>
                                 <div className='mb-1'>
                                     <label className={recipeCommonStyles.recipeFormLabel} htmlFor='name'>Recipe Name</label>
@@ -152,7 +152,7 @@ export default function RecipeForm() {
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='ingredients'>Ingredients</label>
                             <FieldArray name='ingredients'>
                                 {({ insert, remove, push}) => (
-                                    <div>
+                                    <div className={recipeFormStyles.inputList}>
                                         {values.ingredients.length > 0 &&
                                         values.ingredients.map((ingredient, index) => (
                                             <div className={recipeFormStyles.listElement} key={index}>
@@ -177,7 +177,7 @@ export default function RecipeForm() {
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='instructions'>Instructions</label>
                             <FieldArray name='instructions'>
                                 {({ insert, remove, push}) => (
-                                    <div className={recipeFormStyles.inputList}>
+                                    <div>
                                         {values.instructions.length > 0 &&
                                         values.instructions.map((ingredient, index) => (
                                             <div className={recipeFormStyles.listElement} key={index}>
