@@ -36,6 +36,10 @@
     padding: 1rem;
 }
 
+.pt-1 {
+    padding: 1rem 0 0;
+}
+
 .mb-1 {
     margin: 0 0 1rem;
 }
@@ -46,4 +50,12 @@
 
 .mr-1 {
     margin: 0 1rem 0 0;
+}
+
+.mt-1 {
+    margin: 1rem 0 0;
+}
+
+.mt-2 {
+    margin: 2rem 0 0;
 }

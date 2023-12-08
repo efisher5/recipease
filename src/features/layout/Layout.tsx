@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import layoutStyles from  "./Layout.module.css";
+import "../../global.css";
 
 export default function Layout() {
     const navigate = useNavigate();
@@ -41,10 +42,9 @@ export default function Layout() {
         </div>
         
         {/* Footer */}
-        <footer className={layoutStyles.footer}>
-            <div className={layoutStyles.divider}></div>
-            {/* <div>© Evan Fisher 2023</div> */}
-        </footer>
+        {/*<footer className={layoutStyles.footer}>
+             <div className="pt-1">© Evan Fisher 2023</div> 
+    </footer>*/}
         </>
     )
 }

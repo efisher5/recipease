@@ -7,8 +7,6 @@ import { useAppDispatch } from "../../app/hooks";
 import { RecipeListingDto } from "../../openapi";
 import { setRequestHeaders } from "../../services/axios";
 import { createRecipe, getRecipes } from "../recipes/recipeSlice";
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
 import homeStyles from './Home.module.css';
 import '../../global.css';
 
@@ -34,7 +32,7 @@ export default function Home() {
 
    const makeRecipe = async () => {
     const res = await dispatch(createRecipe()).unwrap();
-    const route = '/recipe/' + res?.recipeId;
+    const route = '/recipe/' + res?.recipeId + '/edit';
     navigate(route);
    }
 

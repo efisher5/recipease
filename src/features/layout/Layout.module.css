@@ -5,7 +5,7 @@
     border-bottom: 1px solid #e0e0e0;
 }
 
-.headerContent, .body, .footer {
+.headerContent, .body {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -46,16 +46,14 @@
 
 body {
     background-color: white;
-}
-
-.divider {
-    border: 1px solid var(--primary);
-    width: 50%;
-    margin: 2rem auto;
+    min-height: 100vh;
 }
 
 .footer {
     text-align: center;
+    background-color: #f0f0f0;
+    height: 50px;
+    margin-top: 2rem;
 }
 
 /* Using ID over class to override base-btn border property */

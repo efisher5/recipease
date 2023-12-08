@@ -83,14 +83,14 @@ export default function RecipeForm() {
     }
 
     return (
-        <div>
-            <div className={recipeCommonStyles.recipeBtnGroup}>
-                <button onClick={viewRecipe} type="button" className={recipeCommonStyles.recipeBtn}>
+        <div className="mt-2">
+            <div>
+                <button onClick={viewRecipe} type="button" className={recipeFormStyles.recipeFormBtn}>
                     <span className={recipeCommonStyles.recipeBtnText}>View Recipe</span>
                 </button>
             </div>
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}
-            <div className={recipeCommonStyles.recipeBorder}>
+            <div className={recipeFormStyles.recipeFormContainer}>
                 <Formik
                     enableReinitialize
                     initialValues={{

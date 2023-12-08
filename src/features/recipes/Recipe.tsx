@@ -46,12 +46,7 @@ export default function Recipe() {
     }
 
     return (
-        <div>
-            <div className={recipeCommonStyles.recipeBtnGroup}>
-                <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
-                    <span className={recipeCommonStyles.recipeBtnText}>Edit Recipe</span>
-                </button>
-            </div>
+        <div className="mt-1">
             <div className={recipeCommonStyles.recipeBorder}>
                 <div className={recipeStyles.recipeLayout}>
                     {/* Recipe Name & Description */}
@@ -93,6 +88,12 @@ export default function Recipe() {
                         </ol>
                     </div>
                 </div>
+            </div>
+
+            <div className={recipeStyles.recipeActions}>
+                <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
+                    <span className={recipeCommonStyles.recipeBtnText}>Edit Recipe</span>
+                </button>
             </div>
         </div>
     )

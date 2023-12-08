@@ -23,6 +23,24 @@
     flex-grow: 1;
 }
 
+.recipeFormBtn {
+    background-color: white;
+    color: var(--primary);
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    font-weight: bold;
+}
+
+.recipeFormContainer {
+    margin: 2rem 0;
+}
+
+.recipeFormBtn:hover {
+    opacity: 0.7;
+}
+
 .prepCookTime {
     display: flex;
     justify-content: space-evenly;
