@@ -1,7 +1,39 @@
 .tableHeader {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 2rem auto 1rem;
+}
+
+.searchAndFilter {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.searchbar {
+    padding: 10px;
+    border: none;
+    border-right: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 300px;
+}
+
+.searchBtn {
+    background-color: var(--primary);
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filterBtn {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .recipeBtn {

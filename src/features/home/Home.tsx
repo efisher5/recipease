@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faMagnifyingGlass, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from "../../app/hooks";
@@ -43,6 +43,15 @@ export default function Home() {
    return (
         <div>
             <div className={homeStyles.tableHeader}>
+                <div className={homeStyles.searchAndFilter}>
+                    <input className={homeStyles.searchbar} placeholder="Search recipe name or ingredient" />
+                    <button className={homeStyles.searchBtn}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
+                    </button>
+                    <button className={homeStyles.filterBtn}>
+                        <FontAwesomeIcon icon={faSliders} size="lg" />
+                    </button>
+                </div>
                 <button onClick={makeRecipe} type="button" className={homeStyles.recipeBtn}>
                     <span>New Recipe</span>
                 </button>
