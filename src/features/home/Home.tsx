@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faMagnifyingGlass, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { debounce, throttle } from "lodash";
 import { useAppDispatch } from "../../app/hooks";
 import { RecipeListingDto } from "../../openapi";
 import { setRequestHeaders } from "../../services/axios";
@@ -24,11 +25,22 @@ export default function Home() {
 
         const res = await dispatch(getRecipes()).unwrap();
         setRecipeListings(res!);
+        setVisibleListings(res!);
     }
     fetchRecipes();
    }, [])
     
    const [recipeListings, setRecipeListings] = useState([] as RecipeListingDto[]);
+   const [visibleListings, setVisibleListings] = useState([] as RecipeListingDto[])
+
+   const onSearch = useCallback(
+        debounce((value) => {
+            setVisibleListings(recipeListings.filter((listing) => {
+                return listing.name!.toLowerCase().includes(value.toLowerCase())
+            }))
+        }, 1000),
+        []
+    )
 
    const makeRecipe = async () => {
     const res = await dispatch(createRecipe()).unwrap();
@@ -44,13 +56,16 @@ export default function Home() {
         <div>
             <div className={homeStyles.tableHeader}>
                 <div className={homeStyles.searchAndFilter}>
-                    <input className={homeStyles.searchbar} placeholder="Search recipe name or ingredient" />
+                    <input 
+                        className={homeStyles.searchbar} 
+                        placeholder="Search recipe name"  
+                        onChange={(event) => {onSearch(event.target.value)}} />
                     <button className={homeStyles.searchBtn}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
                     </button>
-                    <button className={homeStyles.filterBtn}>
+                    {/*<button className={homeStyles.filterBtn}>
                         <FontAwesomeIcon icon={faSliders} size="lg" />
-                    </button>
+                    </button>*/}
                 </div>
                 <button onClick={makeRecipe} type="button" className={homeStyles.recipeBtn}>
                     <span>New Recipe</span>
@@ -58,7 +73,7 @@ export default function Home() {
             </div>
             
             <div className={homeStyles.cardGrid}>
-                    {recipeListings.map((recipe, index) => (
+                    {visibleListings.map((recipe, index) => (
                         <div className={homeStyles.card}>
                             <button onClick={() => fetchRecipe(recipe.recipeId!)} type="button" className={homeStyles.cardBtn}>
                                 <div className={homeStyles.cardText}>
