@@ -13,7 +13,7 @@
 .recipeBtn {
     background-color: var(--primary);
     color: white;
-    padding: 10px 30px;
+    padding: 12px 30px;
     border-radius: 8px;
     cursor: pointer;
     border: none;

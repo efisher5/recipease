@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faMagnifyingGlass, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { debounce, throttle } from "lodash";
+import { debounce } from "lodash";
 import { useAppDispatch } from "../../app/hooks";
 import { RecipeListingDto } from "../../openapi";
 import { setRequestHeaders } from "../../services/axios";
@@ -76,13 +76,15 @@ export default function Home() {
                     {visibleListings.map((recipe, index) => (
                         <div className={homeStyles.card}>
                             <button onClick={() => fetchRecipe(recipe.recipeId!)} type="button" className={homeStyles.cardBtn}>
-                                <div className={homeStyles.cardText}>
-                                    <div className={homeStyles.cardHeader}>{ recipe.name }</div>
-                                    <FontAwesomeIcon icon={faClock} size="sm" />
-                                    <span className={homeStyles.time}>30 mins</span>
-                                </div>
-                                <div className={homeStyles.cardImage}>
-                                    Image Placeholder
+                                <div className={homeStyles.cardContent}>
+                                    <div className={homeStyles.cardText}>
+                                        <div className={homeStyles.cardHeader}>{ recipe.name }</div>
+                                        <FontAwesomeIcon icon={faClock} size="sm" />
+                                        <span className={homeStyles.time}>30 mins</span>
+                                    </div>
+                                    <div className={homeStyles.cardImage}>
+                            
+                                    </div>
                                 </div>
                             </button>
                         </div>
