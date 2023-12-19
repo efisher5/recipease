@@ -1,6 +1,4 @@
 import { useMemo, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch } from '../../app/hooks';
@@ -48,15 +46,9 @@ export default function Recipe() {
     }
 
     return (
-        <div>
-            <div className={recipeCommonStyles.recipeBtnGroup}>
-                <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
-                    <span className={recipeCommonStyles.recipeBtnText}>Edit</span>
-                    <FontAwesomeIcon icon={faPenToSquare} size="2x" />
-                </button>
-            </div>
+        <div className="mt-1">
             <div className={recipeCommonStyles.recipeBorder}>
-                <div className={recipeStyles.recipeLayout}>
+                <div className={recipeCommonStyles.recipeLayout}>
                     {/* Recipe Name & Description */}
                     <h1>{ recipe.name }</h1>
                     {recipe.notes && 
@@ -81,7 +73,7 @@ export default function Recipe() {
                     </div>
 
                     {/* Ingredients */}
-                    <div className={recipeStyles.list}>
+                    <div className={recipeStyles.ingredientsList}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Ingredients</label>
                         <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
                             { ingredients }
@@ -96,6 +88,12 @@ export default function Recipe() {
                         </ol>
                     </div>
                 </div>
+            </div>
+
+            <div className={recipeStyles.recipeActions}>
+                <button onClick={editForm} type="button" className={recipeCommonStyles.recipeBtn}>
+                    <span className={recipeCommonStyles.recipeBtnText}>Edit Recipe</span>
+                </button>
             </div>
         </div>
     )

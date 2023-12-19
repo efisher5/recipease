@@ -26,17 +26,15 @@ export default function DeleteRecipeModal({setIsOpen, recipe}: ModalProps) {
 
     return (
         <div>
-            <div onClick={() => setIsOpen(false)}>
-                <div className={deleteRecipeModalStyles.centered}>
-                    <div className={deleteRecipeModalStyles.modal}>
-                        <h3 className={`${deleteRecipeModalStyles.modalHeader} m-0`}>Delete Recipe</h3>
-                        <div className='p-1'>
-                            Are you sure you want to delete this recipe?
-                        </div>
-                        <div className={deleteRecipeModalStyles.modalActions}>
-                            <button className={`${deleteRecipeModalStyles.modalBtn} ${deleteRecipeModalStyles.modalCancelBtn}`} onClick={() => setIsOpen(false)}>Cancel</button>
-                            <button className={`${deleteRecipeModalStyles.modalBtn} ${deleteRecipeModalStyles.modalDeleteBtn}`} onClick={() => removeRecipe()}>Delete</button>
-                        </div>
+            <div className={deleteRecipeModalStyles.centered}>
+                <div className={deleteRecipeModalStyles.modal}>
+                    <h3 className={`${deleteRecipeModalStyles.modalHeader} m-0`}>Delete Recipe</h3>
+                    <div className='p-1'>
+                        Are you sure you want to delete this recipe?
+                    </div>
+                    <div className={deleteRecipeModalStyles.modalActions}>
+                        <button className={`${deleteRecipeModalStyles.modalBtn} ${deleteRecipeModalStyles.modalCancelBtn}`} onClick={() => setIsOpen(false)}>Cancel</button>
+                        <button className={`${deleteRecipeModalStyles.modalBtn} ${deleteRecipeModalStyles.modalDeleteBtn}`} onClick={() => removeRecipe()}>Delete</button>
                     </div>
                 </div>
             </div>

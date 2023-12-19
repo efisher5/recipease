@@ -9,11 +9,11 @@
   position: relative;
   width: 300px;
   height: 220px;
-  background: #f1f1f1;
+  background: white;
   z-index: 100;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
   text-align: center;
-  border: 2px solid var(--primary);
+  border: 2px solid #e0e0e0;
   border-radius: 5px;
   animation: scaleUp .5s cubic-bezier(0.165, 0.240, 0.140, 1.00) forwards;
 }
@@ -61,7 +61,7 @@
 }
 
 .modalDeleteBtn {
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--danger);
   color: white;
-  background: var(--secondary);
+  background: var(--danger);
 }

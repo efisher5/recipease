@@ -53,8 +53,6 @@ export default function RecipeForm() {
             setInstructions(instructions)
         }
         await fetchRecipe();
-        
-        
     }, [])
 
     const saveForm = async (values: RecipeDto) => {
@@ -83,15 +81,9 @@ export default function RecipeForm() {
     }
 
     return (
-        <div>
-            <div className={recipeCommonStyles.recipeBtnGroup}>
-                <button onClick={viewRecipe} type="button" className={recipeCommonStyles.recipeBtn}>
-                    <span className={recipeCommonStyles.recipeBtnText}>View</span>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
-                </button>
-            </div>
+        <div className="mt-2">
             {isOpen && <DeleteRecipeModal setIsOpen={setIsOpen} recipe={recipe} />}
-            <div className={recipeCommonStyles.recipeBorder}>
+            <div className={recipeCommonStyles.recipeLayout}>
                 <Formik
                     enableReinitialize
                     initialValues={{
@@ -113,7 +105,7 @@ export default function RecipeForm() {
                     }}
                 >
                     {({ values }) => (
-                        <Form className={recipeFormStyles.recipeForm}>
+                        <Form>
                             <div>
                                 <div className='mb-1'>
                                     <label className={recipeCommonStyles.recipeFormLabel} htmlFor='name'>Recipe Name</label>
@@ -151,41 +143,43 @@ export default function RecipeForm() {
                             </div>
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='ingredients'>Ingredients</label>
-                            <FieldArray name='ingredients'>
-                                {({ insert, remove, push}) => (
-                                    <div>
-                                        {values.ingredients.length > 0 &&
-                                        values.ingredients.map((ingredient, index) => (
-                                            <div className={recipeFormStyles.listElement} key={index}>
-                                                <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex}`} name={`ingredients.${index}`} />
-                                                <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                    <FontAwesomeIcon icon={faXmark} size='lg' className='secondary-color' />
+                            <div className="mb-1">
+                                <FieldArray name='ingredients'>
+                                    {({ insert, remove, push}) => (
+                                        <div className={recipeFormStyles.inputList}>
+                                            {values.ingredients.length > 0 &&
+                                            values.ingredients.map((ingredient, index) => (
+                                                <div className={recipeFormStyles.listElement} key={index}>
+                                                    <span><b>{ index + 1 + '.' }</b></span>
+                                                    <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex}`} name={`ingredients.${index}`} />
+                                                    <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
+                                                        <FontAwesomeIcon icon={faXmark} size='lg' className='danger-color' />
+                                                    </button>
+                                                </div>
+                                            ))}
+
+                                            <div className={recipeFormStyles.addBtnRow}>
+                                                <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
+                                                    <span className={recipeFormStyles.addBtnSpan}>Add Ingredient</span>
+                                                    <FontAwesomeIcon icon={faPlus} size="lg" />
                                                 </button>
                                             </div>
-                                        ))}
-
-                                        <div className={recipeFormStyles.addBtnRow}>
-                                            <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
-                                                <span className={recipeFormStyles.addBtnSpan}>Add Ingredient</span>
-                                                <FontAwesomeIcon icon={faPlus} size="lg" />
-                                            </button>
                                         </div>
-                                    </div>
-                                )}
-                            </FieldArray>
+                                    )}
+                                </FieldArray>
+                            </div>
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='instructions'>Instructions</label>
                             <FieldArray name='instructions'>
                                 {({ insert, remove, push}) => (
-                                    <div className={recipeFormStyles.inputList}>
+                                    <div>
                                         {values.instructions.length > 0 &&
                                         values.instructions.map((ingredient, index) => (
                                             <div className={recipeFormStyles.listElement} key={index}>
                                                 <span><b>{ index + 1 + '.' }</b></span>
                                                 <Field component='textarea' rows='3' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} name={`instructions.${index}`} />
                                                 <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                    <FontAwesomeIcon icon={faXmark} size='lg' className="secondary-color"/>
+                                                    <FontAwesomeIcon icon={faXmark} size='lg' className="danger-color"/>
                                                 </button>
                                             </div>
                                         ))}
@@ -201,6 +195,9 @@ export default function RecipeForm() {
                             </FieldArray>
 
                             <div className={recipeFormStyles.submitBtnRow}>
+                                <button onClick={viewRecipe} type="button" className={recipeFormStyles.recipeFormBtn}>
+                                    <span className={recipeCommonStyles.recipeBtnText}>View</span>
+                                </button>
                                 <button disabled={isOpen} className={`${recipeFormStyles.formBtn} ${recipeFormStyles.deleteBtn}`} type='button' onClick={() => setIsOpen(true)}>Delete</button>
                                 <button disabled={isOpen} className={`${recipeFormStyles.formBtn} ${recipeFormStyles.submitBtn}`} type='submit'>Save</button>
                             </div>

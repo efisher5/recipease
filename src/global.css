@@ -1,10 +1,15 @@
 :root {
-    --primary: #0041cc;
-    --secondary: #ce1141;
+    /*--primary: #0041cc;*/
+   --primary: #03974a;
+    --danger: #ce1141;
 }
 
-.secondary-color {
-    color: var(--secondary);
+.primary-color {
+    color: var(--primary);
+}
+
+.danger-color {
+    color: var(--danger);
 }
 
 .base-btn {
@@ -31,8 +36,16 @@
     padding: 1rem;
 }
 
+.pt-1 {
+    padding: 1rem 0 0;
+}
+
 .mb-1 {
     margin: 0 0 1rem;
+}
+
+.mb-2 {
+    margin: 0 0 2rem;
 }
 
 .ml-1 {
@@ -41,4 +54,12 @@
 
 .mr-1 {
     margin: 0 1rem 0 0;
+}
+
+.mt-1 {
+    margin: 1rem 0 0;
+}
+
+.mt-2 {
+    margin: 2rem 0 0;
 }
