@@ -23,10 +23,6 @@
     column-gap: 10px;
 }
 
-.homeIcon {
-    color: var(--primary);
-}
-
 .title {
     color: var(--primary);
     margin: .5rem 0;

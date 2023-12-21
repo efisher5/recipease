@@ -25,8 +25,8 @@
 .loginWrapper::before {
     left: 0;
     top: 0;
-    border-left: 3px solid var(--danger);
-    border-top: 3px solid var(--danger);
+    border-left: 3px solid var(--primary);
+    border-top: 3px solid var(--primary);
 }
 
 .loginWrapper::after {
@@ -60,8 +60,4 @@
 
 .inputFieldNormal {
     width: 75%;
-}
-
-.iconWrapper {
-    margin-bottom: 1rem;
 }

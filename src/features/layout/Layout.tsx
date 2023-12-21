@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faMortarPestle } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import layoutStyles from  "./Layout.module.css";
 import "../../global.css";
 import { useState } from "react";
@@ -24,7 +24,6 @@ export default function Layout() {
             <div className={layoutStyles.headerContent}>
                 <div className={layoutStyles.homeBtnContainer}>
                         <button className={`${layoutStyles.homeBtn} base-btn`} onClick={returnHome}>
-                            <FontAwesomeIcon icon={faMortarPestle} size="2x" className={layoutStyles.homeIcon} />
                             <h1 className={layoutStyles.title}>Recipease</h1>
                         </button>
                     </div>
