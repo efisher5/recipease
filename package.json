@@ -33,8 +33,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "docker": "react-scripts start --host 0.0.0.0 --port 3001",
-    "build": "vite build",
+    "docker": "vite --host 0.0.0.0 --port 3001",
+    "create:static": "vite build",
     "build:api": "rimraf ./src/openapi && npx @openapitools/openapi-generator-cli generate -i ../menu-server/api/openapi.yaml -o ./src/openapi -g typescript-axios"
   },
   "eslintConfig": {
