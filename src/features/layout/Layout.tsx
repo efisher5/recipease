@@ -7,6 +7,7 @@ import "../../global.css";
 import { useState } from "react";
 
 export default function Layout() {
+    const VITE_LOGOUT_REDIRECT_URI = import.meta.env.VITE_LOGOUT_REDIRECT_URI;
     const navigate = useNavigate();
     const { logout, user } = useAuth0();
 
@@ -36,7 +37,7 @@ export default function Layout() {
                         {
                         displayUserActions && 
                         <div className={layoutStyles.userActions}>
-                            <div className={layoutStyles.userActionBtn} role="button" onClick={() => logout({ logoutParams: { returnTo: 'http://localhost:3001/login' } })}>Log Out</div>
+                            <div className={layoutStyles.userActionBtn} role="button" onClick={() => logout({ logoutParams: { returnTo: VITE_LOGOUT_REDIRECT_URI } })}>Log Out</div>
                         </div>
                         }
                     </div>
