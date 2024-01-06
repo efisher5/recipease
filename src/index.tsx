@@ -1,12 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { Auth0Provider } from '@auth0/auth0-react';
 
+const VITE_LOGIN_REDIRECT_URI = import.meta.env.VITE_LOGIN_REDIRECT_URI;
+const VITE_API_BASE_PATH = import.meta.env.VITE_API_BASE_PATH;
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
@@ -16,8 +18,8 @@ root.render(
       domain="dev-jrqafy16s4gs5ji0.us.auth0.com"
       clientId="61Sejvgv0VZn3phJ3TT7aU4ntKY9lhfm"
       authorizationParams={{
-        redirect_uri: 'http://localhost:3001/',
-        audience: 'http://localhost:3000/api',
+        redirect_uri: VITE_LOGIN_REDIRECT_URI,
+        audience: VITE_API_BASE_PATH,
       }}
     >
 

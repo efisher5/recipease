@@ -1,10 +1,10 @@
 import axios from "axios";
 import { Configuration } from "../openapi/configuration";
-import { BASE_PATH } from "../openapi/base";
 import { DefaultApi } from "../openapi/api";
+const VITE_API_BASE_PATH = import.meta.env.VITE_API_BASE_PATH;
 
 const config: Configuration = new Configuration({
-    basePath: 'http://localhost:3000/api'
+    basePath: VITE_API_BASE_PATH
 })
 
 const axiosInstance = axios.create({
