@@ -16,7 +16,7 @@ const router = createBrowserRouter([
             { path: "recipe/:id/edit", Component: RecipeForm }
         ]
     },
-    { path: "login", Component: LoginFormComponent }
+    { path: "/login", Component: LoginFormComponent }
 ])
 
 export default function App() {
