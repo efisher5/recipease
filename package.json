@@ -35,7 +35,7 @@
     "dev": "vite",
     "docker": "vite --host 0.0.0.0 --port 3001",
     "build": "vite build",
-    "build:api": "rimraf ./src/openapi && npx @openapitools/openapi-generator-cli generate -i ../menu-server/api/openapi.yaml -o ./src/openapi -g typescript-axios"
+    "build:api": "rimraf ./src/openapi && npx @openapitools/openapi-generator-cli generate -i ../recipease-server/api/openapi.yaml -o ./src/openapi -g typescript-axios"
   },
   "eslintConfig": {
     "extends": [
