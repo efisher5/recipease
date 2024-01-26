@@ -33,14 +33,11 @@ export default function Home() {
    const [recipeListings, setRecipeListings] = useState([] as RecipeListingDto[]);
    const [visibleListings, setVisibleListings] = useState([] as RecipeListingDto[])
 
-   const onSearch = useCallback(
-        debounce((value) => {
-            setVisibleListings(recipeListings.filter((listing) => {
-                return listing.name!.toLowerCase().includes(value.toLowerCase())
-            }))
-        }, 1000),
-        []
-    )
+    const onSearch = debounce(value => {
+        setVisibleListings(recipeListings.filter((listing) => {
+            return listing.name!.toLowerCase().includes(value.toLowerCase())
+        }))
+    }, 1000)
 
    const makeRecipe = async () => {
     const res = await dispatch(createRecipe()).unwrap();
