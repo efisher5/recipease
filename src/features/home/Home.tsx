@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faMagnifyingGlass, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
