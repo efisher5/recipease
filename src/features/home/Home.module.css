@@ -120,6 +120,10 @@
     }
 
     .searchbar {
-        width: 89.6%;
+        width: 100%;
+    }
+
+    .searchBtn {
+        display: none;
     }
 }
