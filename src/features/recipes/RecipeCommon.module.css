@@ -28,3 +28,9 @@
     font-size: large;
     margin-bottom: .5rem;
 }
+
+@media (max-width: 500px) {
+    .recipeBorder {
+        border: none;
+    }
+}
