@@ -83,3 +83,15 @@ body {
         }
     }
 }
+
+@media (max-width: 500px) {
+    .user {
+        display: none;
+    }
+
+    .userActions {
+        /* Will likely need to rework this. Maybe a sliding window? */
+        right: 3.5rem;
+        width: 6rem;
+    }
+}

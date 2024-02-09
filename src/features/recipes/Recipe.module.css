@@ -45,3 +45,29 @@
 .recipeNotes {
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    .times {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        text-align: center;
+    }
+
+    .times {
+        justify-content: space-around;
+    }
+
+    .ingredientsList {
+        width: 100%;
+    }
+
+    .ingredientList {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+}
