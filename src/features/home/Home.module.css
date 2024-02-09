@@ -44,7 +44,6 @@
     cursor: pointer;
     border: none;
     font-weight: bold;
-    margin-left: 1rem;
 }
 
 .recipeBtn:hover {
@@ -102,5 +101,25 @@
 @media (max-width: 768px) {
     .cardGrid {
         grid-template-columns: repeat(2, 1fr)
+    }
+
+    .searchbar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .tableHeader {
+        flex-direction: column;
+        gap: 10px;
+        margin: 2rem 0 1rem;
+    }
+
+    .cardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .searchbar {
+        width: 89.6%;
     }
 }
