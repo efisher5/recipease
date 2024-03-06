@@ -42,10 +42,10 @@ export default function RecipeForm() {
             setRequestHeaders([{ key: 'Authorization', value: `Bearer ${accessToken}` }])
             const res = await dispatch(getRecipe(recipeId)).unwrap();
             
-            let ingredients = res!.ingredients!.map(ingredient =>
+            let ingredients = res!.ingredients!.map((ingredient: any) =>
                 <li key={ingredient}>{ ingredient }</li>
             );
-            let instructions = res!.instructions!.map(instruction =>
+            let instructions = res!.instructions!.map((instruction: any) =>
                 <li key={instruction}>{ instruction }</li>
             );
             setRecipe(res!);
@@ -58,7 +58,6 @@ export default function RecipeForm() {
     const saveForm = async (values: RecipeDto) => {
         const updatedRecipe = {} as RecipeDto;
         updatedRecipe.recipeId = recipe.recipeId;
-        updatedRecipe.userId = recipe.userId;
         updatedRecipe.name = values.name;
         updatedRecipe.notes = values.notes;
         updatedRecipe.prepTimeHours = Number(values.prepTimeHours);

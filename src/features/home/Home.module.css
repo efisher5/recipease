@@ -74,6 +74,7 @@
             .cardText {
                 margin-bottom: 1rem;
                 flex: 1 1 auto;
+                color: black;
             }
     
             .cardHeader {
