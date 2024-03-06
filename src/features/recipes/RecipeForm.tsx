@@ -58,7 +58,6 @@ export default function RecipeForm() {
     const saveForm = async (values: RecipeDto) => {
         const updatedRecipe = {} as RecipeDto;
         updatedRecipe.recipeId = recipe.recipeId;
-        updatedRecipe.userId = recipe.userId;
         updatedRecipe.name = values.name;
         updatedRecipe.notes = values.notes;
         updatedRecipe.prepTimeHours = Number(values.prepTimeHours);
