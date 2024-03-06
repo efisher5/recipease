@@ -10,6 +10,10 @@
     margin-right: auto;
 }
 
+.body {
+    margin-bottom: 2rem;
+}
+
 .headerContent {
     padding: 1rem;
     display: flex;
