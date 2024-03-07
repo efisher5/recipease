@@ -14,8 +14,6 @@ export default function Recipe() {
     const { getAccessTokenSilently } = useAuth0();
 
     const [recipe, setRecipe] = useState([] as RecipeDto)
-    const [ingredients, setIngredients] = useState([] as any);
-    const [instructions, setInstructions] = useState([] as any);
 
     useMemo(async () => {
         const recipeId = document.URL.split('/')[4];
@@ -24,16 +22,8 @@ export default function Recipe() {
             const accessToken = await getAccessTokenSilently();
             setRequestHeaders([{ key: 'Authorization', value: `Bearer ${accessToken}` }])
             const res = await dispatch(getRecipe(recipeId)).unwrap();
-            
-            let ingredients = res!.ingredients!.map(ingredient =>
-                <li key={ingredient} className={recipeStyles.ingredient}>{ ingredient }</li>
-            );
-            let instructions = res!.instructions!.map(instruction =>
-                <li key={instruction} className={recipeStyles.instruction}>{ instruction }</li>
-            );
+
             setRecipe(res!);
-            setIngredients(ingredients);
-            setInstructions(instructions)
         }
         await fetchRecipe();
         
@@ -75,17 +65,23 @@ export default function Recipe() {
                     {/* Ingredients */}
                     <div className={recipeStyles.ingredientsList}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Ingredients</label>
-                        <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
+                        {/* <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
                             { ingredients }
-                        </ul>
+                        </ul> */}
+                        <div>
+                            {recipe.ingredients}
+                        </div>
                     </div>
 
                     {/* Instructions */}
                     <div className={recipeStyles.list}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Instructions</label>
-                        <ol className={recipeStyles.instructionList} type="1">
+                        {/* <ol className={recipeStyles.instructionList} type="1">
                             { instructions }
-                        </ol>
+                        </ol> */}
+                        <div>
+                            { recipe.instructions }
+                        </div>
                     </div>
                 </div>
             </div>
