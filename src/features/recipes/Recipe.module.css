@@ -5,10 +5,7 @@
     width: 50%;
 }
 
-.ingredientList {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
+.ingredientList, .instructionList {
     list-style-type: none;
     padding: 0;
 }
@@ -16,10 +13,6 @@
 .recipeActions {
     text-align: center;
     margin-bottom: 2rem;
-}
-
-.instructionList {
-    padding-left: 1rem;
 }
 
 .instruction {
@@ -30,12 +23,12 @@
     margin-bottom: .75rem;
 }
 
-.list {
-    margin-bottom: 2rem;
+.extraSpace {
+    margin-bottom: 3rem;
 }
 
-.ingredientsList {
-    width: 50%;
+.list {
+    margin-bottom: 2rem;
 }
 
 .recipeNotesWrapper {

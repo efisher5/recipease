@@ -14,8 +14,8 @@ export default function Recipe() {
     const { getAccessTokenSilently } = useAuth0();
 
     const [recipe, setRecipe] = useState([] as RecipeDto)
-    const [ingredients, setIngredients] = useState([] as any);
-    const [instructions, setInstructions] = useState([] as any);
+    const [ingredients, setIngredients] = useState([] as any[]);
+    const [instructions, setInstructions] = useState([] as any[]);
 
     useMemo(async () => {
         const recipeId = document.URL.split('/')[4];
@@ -24,20 +24,21 @@ export default function Recipe() {
             const accessToken = await getAccessTokenSilently();
             setRequestHeaders([{ key: 'Authorization', value: `Bearer ${accessToken}` }])
             const res = await dispatch(getRecipe(recipeId)).unwrap();
-            
-            let ingredients = res!.ingredients!.map(ingredient =>
-                <li key={ingredient} className={recipeStyles.ingredient}>{ ingredient }</li>
-            );
-            let instructions = res!.instructions!.map(instruction =>
-                <li key={instruction} className={recipeStyles.instruction}>{ instruction }</li>
-            );
+
+            // Splitting the ingredient and instruction information to create list-like structure
+            let ingredients = res!.ingredients!.split('\n').map((ingredient, index) => 
+                <li key={index} className={`${ingredient !== '' ? recipeStyles.ingredient : 'mb-3'}`}>{ingredient}</li>
+            )
+
+            let instructions = res!.instructions!.split('\n').map((instruction, index) =>
+                <li key={index} className={recipeStyles.instruction}>{instruction}</li>
+            )
+
             setRecipe(res!);
             setIngredients(ingredients);
-            setInstructions(instructions)
+            setInstructions(instructions);
         }
         await fetchRecipe();
-        
-        
     }, [])
 
     const editForm = async () => {
@@ -73,7 +74,7 @@ export default function Recipe() {
                     </div>
 
                     {/* Ingredients */}
-                    <div className={recipeStyles.ingredientsList}>
+                    <div className={recipeStyles.list}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Ingredients</label>
                         <ul className={`${recipeStyles.recipeList} ${recipeStyles.ingredientList}`}>
                             { ingredients }
@@ -83,9 +84,9 @@ export default function Recipe() {
                     {/* Instructions */}
                     <div className={recipeStyles.list}>
                         <label className={recipeCommonStyles.recipeFormLabel}>Instructions</label>
-                        <ol className={recipeStyles.instructionList} type="1">
+                        <ul className={recipeStyles.instructionList}>
                             { instructions }
-                        </ol>
+                        </ul>
                     </div>
                 </div>
             </div>

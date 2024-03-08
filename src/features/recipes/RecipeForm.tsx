@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Formik, Form, Field, FieldArray } from 'formik';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from '../../app/hooks';
 import { getRecipe, updateRecipe } from "./recipeSlice";
@@ -20,8 +20,8 @@ interface Values {
     prepTimeMinutes: number,
     cookTimeHours: number,
     cookTimeMinutes: number,
-    ingredients: string[],
-    instructions: string[]
+    ingredients: string,
+    instructions: string
 }
 
 export default function RecipeForm() {
@@ -30,8 +30,6 @@ export default function RecipeForm() {
     const { getAccessTokenSilently } = useAuth0();
 
     const [recipe, setRecipe] = useState([] as RecipeDto)
-    const [ingredients, setIngredients] = useState([] as any);
-    const [instructions, setInstructions] = useState([] as any);
     const [isOpen, setIsOpen] = useState(false);
 
     useMemo(async () => {
@@ -42,15 +40,7 @@ export default function RecipeForm() {
             setRequestHeaders([{ key: 'Authorization', value: `Bearer ${accessToken}` }])
             const res = await dispatch(getRecipe(recipeId)).unwrap();
             
-            let ingredients = res!.ingredients!.map((ingredient: any) =>
-                <li key={ingredient}>{ ingredient }</li>
-            );
-            let instructions = res!.instructions!.map((instruction: any) =>
-                <li key={instruction}>{ instruction }</li>
-            );
             setRecipe(res!);
-            setIngredients(ingredients);
-            setInstructions(instructions)
         }
         await fetchRecipe();
     }, [])
@@ -92,8 +82,8 @@ export default function RecipeForm() {
                         prepTimeMinutes: recipe.prepTimeMinutes || 0,
                         cookTimeHours: recipe.cookTimeHours || 0,
                         cookTimeMinutes: recipe.cookTimeMinutes || 0,
-                        ingredients: recipe.ingredients || [''],
-                        instructions: recipe.instructions || ['']
+                        ingredients: recipe.ingredients || '',
+                        instructions: recipe.instructions || ''
                     }}
                     onSubmit={(
                         values: Values
@@ -143,56 +133,11 @@ export default function RecipeForm() {
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='ingredients'>Ingredients</label>
                             <div className="mb-1">
-                                <FieldArray name='ingredients'>
-                                    {({ insert, remove, push}) => (
-                                        <div>
-                                            <div className={recipeFormStyles.inputList}>
-                                                {values.ingredients.length > 0 &&
-                                                values.ingredients.map((ingredient, index) => (
-                                                    <div className={recipeFormStyles.listElement} key={index}>
-                                                        <span><b>{ index + 1 + '.' }</b></span>
-                                                        <Field className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex}`} name={`ingredients.${index}`} />
-                                                        <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                            <FontAwesomeIcon icon={faXmark} size='lg' className='danger-color' />
-                                                        </button>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <div className={recipeFormStyles.addBtnRow}>
-                                                <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
-                                                    <span className={recipeFormStyles.addBtnSpan}>Add Ingredient</span>
-                                                    <FontAwesomeIcon icon={faPlus} size="lg" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </FieldArray>
+                                <Field component='textarea' rows='12' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='ingredients' name='ingredients'/>
                             </div>
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='instructions'>Instructions</label>
-                            <FieldArray name='instructions'>
-                                {({ insert, remove, push}) => (
-                                    <div>
-                                        {values.instructions.length > 0 &&
-                                        values.instructions.map((ingredient, index) => (
-                                            <div className={recipeFormStyles.listElement} key={index}>
-                                                <span><b>{ index + 1 + '.' }</b></span>
-                                                <Field component='textarea' rows='3' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} name={`instructions.${index}`} />
-                                                <button disabled={isOpen} className='base-btn' type='button' onClick={() => remove(index)}>
-                                                    <FontAwesomeIcon icon={faXmark} size='lg' className="danger-color"/>
-                                                </button>
-                                            </div>
-                                        ))}
-
-                                        <div className={recipeFormStyles.addBtnRow}>
-                                            <button disabled={isOpen} className={`base-btn ${recipeFormStyles.addBtn}`} type='button' onClick={() => push('')}>
-                                                <span className={recipeFormStyles.addBtnSpan}>Add Instruction</span>
-                                                <FontAwesomeIcon icon={faPlus} size="lg" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                            </FieldArray>
+                            <Field component='textarea' rows='12' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='instructions' name='instructions'/>
 
                             <div className={recipeFormStyles.submitBtnRow}>
                                 <button onClick={viewRecipe} type="button" className={recipeFormStyles.recipeFormBtn}>

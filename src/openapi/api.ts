@@ -79,16 +79,16 @@ export interface RecipeDto {
     'cookTimeMinutes'?: number;
     /**
      * The ingredients for the recipe
-     * @type {Array<string>}
+     * @type {string}
      * @memberof RecipeDto
      */
-    'ingredients'?: Array<string>;
+    'ingredients'?: string;
     /**
      * The instructions for the recipe
-     * @type {Array<string>}
+     * @type {string}
      * @memberof RecipeDto
      */
-    'instructions'?: Array<string>;
+    'instructions'?: string;
 }
 /**
  * 
