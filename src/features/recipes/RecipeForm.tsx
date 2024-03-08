@@ -133,11 +133,11 @@ export default function RecipeForm() {
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='ingredients'>Ingredients</label>
                             <div className="mb-1">
-                                <Field component='textarea' rows='10' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='ingredients' name='ingredients'/>
+                                <Field component='textarea' rows='12' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='ingredients' name='ingredients'/>
                             </div>
 
                             <label className={recipeCommonStyles.recipeFormLabel} htmlFor='instructions'>Instructions</label>
-                            <Field component='textarea' rows='10' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='ingredients' name='ingredients'/>
+                            <Field component='textarea' rows='12' className={`${recipeFormStyles.input} ${recipeFormStyles.inputFlex} ${recipeFormStyles.textarea}`} id='instructions' name='instructions'/>
 
                             <div className={recipeFormStyles.submitBtnRow}>
                                 <button onClick={viewRecipe} type="button" className={recipeFormStyles.recipeFormBtn}>
